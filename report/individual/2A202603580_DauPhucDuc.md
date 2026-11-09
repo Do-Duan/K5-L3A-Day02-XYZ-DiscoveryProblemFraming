@@ -156,7 +156,7 @@ HIỆN TẠI — 30 phút/lần
 |---|---|---|
 | Pitch Problem Card | Pitch và phản biện các câu hỏi đưa ra cả 3 Problem Card | Nhận được góp ý cải thiện metrics đánh giá |
 | Phản biện bài của bạn khác | Câu hỏi tôi đã đặt: Sản phẩm của H là gì - khách hàng là ai, có bao nhiêu unique expected tickets cho 1 ticket, AI hỗ trợ phân loại tới đâu | Giúp H xác định scope |
-| Nhận phản biện | Câu hỏi tôi nhận được: | Tôi đã sửa gì: Quy trình đối soát ngày nay đã được tự động hóa tới mức độ nào? Các công cụ hõ trợ đối soát tiên phong đang làm ntn? |
+| Nhận phản biện | Câu hỏi tôi nhận được: Quy trình đối soát ngày nay đã được tự động hóa tới mức độ nào? Các công cụ hõ trợ đối soát tiên phong đang làm ntn? | Tôi đã sửa gì: bổ sung metrics |
 | Gom cluster / cây OST | | |
 | Chọn candidate problem | | |
 | Kiểm chứng / research | | |
@@ -171,8 +171,8 @@ HIỆN TẠI — 30 phút/lần
 
 | Checkpoint | Tôi dùng AI để làm gì? | AI hữu ích ở đâu? | AI sai hoặc hời hợt ở đâu? | Tôi sửa gì bằng nhận định của mình? |
 |---|---|---|---|---|
-| CP1 Scan | Viết lại vấn đề, đề xuất các vấn đề tương tự, tranh biện | Khả năng đề xuất vấn đề tương tự của AI giới hạn |  | |
-| CP2 Problem Card | | | | |
+| CP1 Scan | Viết lại vấn đề, đề xuất các vấn đề tương tự, tranh biện | Khả năng đề xuất vấn đề tương tự, tranh biện phản biện trên chính quan điểm trước đó của nó | đánh giá quá thấp khả năng làm việc thủ công của con người | tiềm năng tự động hóa và goal của bài toán |
+| CP2 Problem Card | Viết problem card, phản biện | hữu ích - task và scope đã rõ | hữu ích | không sửa |
 | CP4 Research | | | | |
 | CP5 Quy trình | | | | |
 | CP5–6 Problem Statement | | | | |
@@ -185,18 +185,26 @@ HIỆN TẠI — 30 phút/lần
 Trả lời bằng trải nghiệm thật của bạn, tối thiểu 200 từ cho các câu 6.1–6.6 (không tính 6.7, câu này được chấm riêng ở tiêu chí C5). **Không dùng AI để viết thay.**
 
 **6.1. Tôi học được gì khi nghe top 3 problems của các bạn khác?**
+- Cách tiếp cận và định nghĩa vấn đề
+
 
 **6.2. Nhóm có lúc nào bị "solution-first" (nghĩ giải pháp trước khi hiểu vấn đề) không? Lúc đó nhóm nhận ra và xử lý thế nào?**
+- Có. Hỏi lại - vấn đề đang được giải quyết là gì? 
 
 **6.3. Tôi có đổi ý sau khi bị phản biện không? Kể một lần cụ thể.**
+- Không. Quá trình phản biện giúp tôi định nghĩa vấn đề chính xác hơn. 
 
 **6.4. Kết quả kiểm chứng (phỏng vấn/survey/research) có làm tôi bất ngờ không? Điều gì?**
+- Không. Ý kiến khác nhau là bình thường. 
 
 **6.5. Điều khó nhất khi viết Problem Statement là gì?**
+- Xác định chính xác vấn đề và scope của giải pháp
 
 **6.6. Nếu làm lại, tôi sẽ đổi gì? Tôi sẽ phản biện nhóm mạnh hơn ở điểm nào?**
+- Dùng AI nhiều hơn trong lúc làm bài @@ - quá trình phản biện với người chỉ hiệu quả khi nhóm đã có 1 mục tiêu chung và hiểu cách làm việc của nhau
 
 **6.7. Hiểu bài:** giải thích bằng 5–8 câu, không nhìn tài liệu, chuỗi *problem → quy trình → metric → boundary → mức can thiệp AI → quyết định* của bài nhóm mình.
+
 
 ---
 
