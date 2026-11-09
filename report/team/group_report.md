@@ -5,7 +5,7 @@
 
 ## 1. Thông tin nhóm
 
-- Tên nhóm:
+- Tên nhóm: XYZ
 - Thành viên: xem `TEAM.md`
 - Candidate problem được chọn (1 câu):
 - Quyết định cuối: Go / Not Yet / No-Go
@@ -18,26 +18,27 @@
 
 | # | Người đưa ra | Candidate (Job Story ngắn) | Actor | Bottleneck | Câu hỏi phản biện nhận được (ai hỏi) |
 |---:|---|---|---|---|---|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
+| 1 | Huy | Khi tiếp nhận phản hồi từ khách hàng qua form khảo sát hoặc ticket khiếu nại, tôi muốn phân loại các nhóm lỗi phổ biến nhất trong tuần, để chuyển đúng cho đội kỹ thuật xử lý kịp thời. | Nhân viên Customer Support (CS) / Product Team. | tốn khoảng 40 phút/ngày, lặp đi lặp lại, dễ bị thiên kiến hoặc sai sót. | Ticket nhận về expect có bao nhiêu nhãn -> đơn vị xử lý các ticket đó là ai -> mỗi bước tốn khoảng bao nhiêu thời gian |
+| 2 | Huy | Khi kết thúc các buổi họp giao ban hàng tuần, tôi muốn ghi nhận nhanh các quyết định và action items, để phân công công việc kịp thời mà không bị sót ý hay hiểu lầm. | Người ghi chép (PM / thư ký / lead) | Bước 1 (vừa họp vừa ghi dễ sót ý, mất tập trung) và Bước 3, 4 (sắp xếp và gõ lại mất 30-45 phút). | Hướng giải quyết sử dụng AI sẽ giải quyết như thế nào |
+| 3 | Huy | Khi mở ứng dụng chat công việc sau 1 ngày nghỉ phép, tôi muốn nắm bắt ngay các quyết định hoặc sự cố đã giải quyết, để bắt nhịp lại luồng công việc mà không cần cuộn đọc từng tin một. | Nhân viên nghỉ phép quay lại làm (hoặc đồng nghiệp cùng ca). | (Đọc lướt và lọc thông tin): tốn 15-20 phút, nhiễu loạn thông tin. | Thời gian nghỉ phép không nhiều, không có quá nhiều giá trị |
 | 4 | | | | | |
 | 5 | | | | | |
 | 6 | | | | | |
-| 7 | | | | | |
-| 8 | | | | | |
-| 9 | | | | | |
-| 10 | | | | | |
-| 11 | | | | | |
-| 12 | | | | | |
+| 7 | Duẩn|Khi kế toán trưởng cần kiểm tra, đối soát toàn bộ thu chi của 1 tháng, muốn truy xuất nhanh chóng các dữ liệu giao dịch đã ghi nhận, để không phải dò dẫm thủ công qua hơn 100 trang sổ viết tay |Kế toán trưởng / Quản lý tài chính | Mỗi lần phải kiểm tra hơn 100 trang sổ sách,mất thời gian và dễ sai sót |Tại sao tổ chức vẫn duy trì việc ghi chép sổ sách thủ công bằng tay với quy mô 100+ trang/tháng thay vì bắt buộc sử dụng phần mềm kế toán từ trước? |
+| 8 | Duẩn| Khi đến cuối tuần, kế toán viên cần tổng hợp gần 50 hóa đơn giao dịch phát sinh trong tuần qua để ghi nhận vào sổ sách chung |Kế toán viên / Nhân viên tài chính nội bộ |Mỗi lần ghi chép tốn gần 2 tiếng |Liệu thời gian tốn 2 tiếng mỗi tuần có phải là một 'nỗi đau' thực sự cần can thiệp công nghệ cao (như AI/Workflow phức tạp), hay chỉ cần chuẩn hóa lại biểu mẫu nhập liệu Excel và quy định các phòng ban nộp hóa đơn đúng chuẩn định dạng (Rule đơn giản) là đã giải quyết triệt để? |
+| 9 | Duẩn|Khi tham gia các cuộc họp kéo dài với nhiều nội dung thảo luận và phân công công việc khác nhau, tôi muốn tự động ghi nhận, bóc tách và tóm tắt thành các ý chính kèm theo danh sách việc cần làm (action items), để không bị quên mất hoặc nhầm lẫn nhiệm vụ được giao sau cuộc họp | Nhân viên văn phòng / Trưởng nhóm dự án / Thành viên tham gia họp|Quên mất hoặc nhầm lẫn một số nội dung của cuộc họp |Nếu dùng AI để tự động sinh biên bản họp hoàn hảo mà các thành viên vẫn không thèm đọc hoặc không cập nhật trạng thái thực thi thì bài toán cốt lõi có được giải quyết không? |
+| 10 | Dũng | Khi giáo viên gửi danh sách học viên mới đầu tuần tập huấn, tôi muốn đưa thông tin vào hệ thống nhanh, để học viên kịp lịch tập huấn | Nhân viên(tôi), giáo viên dạy lái, học viên | Bước 4 gõ vào hệ thống khoảng 3 phút/hồ sơ. | nhập khoảng 150 hồ sơ/tuần, mỗi hồ sơ gõ khoảng 3 phút, và có hôm phải chờ giáo viên nộp hồ sơ cứng cả ngày. Nếu thời gian chờ còn dài hơn thời gian gõ thì AI giải quyết được phần nào? Nếu giáo viên nộp theo form chuẩn thì bước gõ có giảm không? |
+| 11 | Dũng | Khi nhiều giáo viên gửi hồ sơ cùng lúc qua nhiều kênh, tôi muốn biết cái nào thiếu và cái nào đã đủ, để xử lý theo thứ tự hợp lý | Nhân viên nhập hồ sơ (tôi), 5 giáo viên dạy lái | Bước 2, mở từng hồ sơ đối chiếu thủ công mất khoảng 2 phút/hồ sơ. Chỗ thiếu thường lộ ra muộn, khi đã nhập dở | khoảng 3 lần bỏ sót mỗi tuần vì hồ sơ thiếu thông tin và bị than khoảng 4 lần mỗi tuần. Trung tâm đã từng có danh sách giấy tờ bắt buộc cho giáo viên chưa? Nếu có mà vẫn thiếu thì danh sách đó sai ở chỗ nào, nếu chưa có thì tại sao chưa thử làm trước khi dùng AI? |
+| 12 | Dũng | Khi giáo viên hỏi vì sao hồ sơ của họ chưa nhập, tôi muốn biết ngay hồ sơ đang ở bước nào, để trả lời được ngay | Nhân viên(tôi), giáo viên dạy lái, học viên | Bước 2, tìm hồ sơ ở nhiều chỗ, chiếm phần lớn trong 2-3 phút mỗi lần hỏi. Hồ sơ không có một nơi ghi trạng thái chung nên phải tìm lại mỗi lần | hồ sơ đang ở đâu mỗi ngày, mỗi lần 2-3 phút, và thất lạc 2-3 lần mỗi tháng. Trong hệ thống bạn nhập hiện có biết được học viên nào đã nhập chưa không? Nếu có thì vì sao vẫn phải đi tìm hồ sơ, và việc tìm là tìm hồ sơ cứng hay tìm trong tin nhắn? |
 
 ### 2.2. Cluster
 
 | Cluster | Các candidate | Pattern chung |
 |---|---|---|
-| A | | |
-| B | | |
-| C | | |
+| A — Nhập / phân loại dữ liệu thô |Nhập 150 hồ sơ/tuần, nhập hóa đơn hằng tuần vào sổ, phân loại lỗi từ phản hồi khách hàng  |Đọc từng bản ghi thô (giấy, ảnh, văn bản) rồi gõ hoặc gắn nhãn lặp đi lặp lại |
+| B — Đối soát / kiểm tra khớp |Đối soát tiền cổng thanh toán, xử lý tiền chuyển khoản treo, hồ sơ thiếu thông tin bị bỏ sót, kiểm xuất 1 tháng giao dịch từ sổ viết tay |So hai nguồn (hoặc so với danh sách chuẩn) để tìm chỗ lệch, chỗ thiếu rồi dò nguyên nhân |
+| C — Tổng hợp nội dung họp / chat |Ghi chép biên bản họp, tổng hợp nội dung sau cuộc họp, theo kịp group chat sau thời gian nghỉ |Gom nội dung dài, rời rạc rồi rút ra quyết định và việc cần làm cho người khác đọc |
+| D — Tra cứu trạng thái |Bị hỏi trạng thái và nghi thất lạc hồ sơ, trả lời sếp về tình hình tiền |Bị hỏi bất chợt, phải đi tìm ở nhiều chỗ mới trả lời được vì không có một nơi ghi trạng thái chung|
 
 ### 2.3. Opportunity Solution Tree rút gọn
 
