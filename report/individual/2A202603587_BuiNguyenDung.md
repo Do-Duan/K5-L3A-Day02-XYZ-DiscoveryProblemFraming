@@ -145,7 +145,7 @@ HIỆN TẠI — 2-3 phút/lần hỏi
 | Chọn candidate problem |Candidate được chọn: Candidate #1: Phân loại phản hồi / ticket khiếu nại từ khách hàng để điều phối cho đội kỹ thuật và sản phẩm. | cả nhóm đều chọn candidate 1 |
 | Kiểm chứng / research | | |
 | Quy trình nhóm |Viết Problem Statement v0 (6 trường); nhờ AI chỉ lỗ hổng | Quy trình giảm từ 5 xuống 4 bước, thời gian từ 45' xuống dưới 10' (kỳ vọng), bottleneck chuyển sang bước người kiểm tra.|
-| Problem Statement | Viết Problem Statement v0 (6 trường); nhờ AI chỉ lỗ hổng| Phản biện chỉ ra metric chưa đo độ đúng và baseline là ước lượng; nhóm thêm metric chất lượng ở v1, ghi rõ baseline là ước lượng, bổ sung điều kiện xin phép khi ghi âm|
+| Problem Statement | nhờ AI chỉ lỗ hổng| Phản biện chỉ ra metric chưa đo độ đúng và baseline là ước lượng; nhóm thêm metric chất lượng ở v1, ghi rõ baseline là ước lượng, bổ sung điều kiện xin phép khi ghi âm|
 | Mức can thiệp AI | Theo mức workflow | vẫn cần con người phải kiểm tra lần cuối |
 | Quyết định | Kết luận chưa đủ | cần phải kiểm chứng thêm |
 
