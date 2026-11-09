@@ -139,15 +139,15 @@ HIỆN TẠI — 2-3 phút/lần hỏi
 | Hoạt động | Tôi đã làm gì? | Kết quả / ảnh hưởng tới bài nhóm |
 |---|---|---|
 | Pitch Problem Card | | |
-| Phản biện bài của bạn khác | Câu hỏi tôi đã đặt: | |
-| Nhận phản biện | Câu hỏi tôi nhận được: | Tôi đã sửa gì: |
-| Gom cluster / cây OST | | |
-| Chọn candidate problem | | |
+| Phản biện bài của bạn khác | Câu hỏi tôi đã đặt: với candidate “Theo kịp group chat sau thời gian nghỉ” của Huy, tôi cùng Đức phản biện rằng thời gian nghỉ phép không nhiều nên candidate này không có quá nhiều giá trị |Candidate này không được nhóm chọn. |
+| Nhận phản biện | Câu hỏi tôi nhận được: (1) thời gian chờ hồ sơ cứng có dài hơn thời gian gõ không, form chuẩn có giảm bước gõ không; (2) trung tâm từng có danh sách giấy tờ bắt buộc chưa; (3) hệ thống có biết hồ sơ đã nhập chưa| Tôi đã sửa gì: ở Card #1, tách thời gian chờ ra khỏi bottleneck, thêm lý do form chuẩn chưa giải quyết được hồ sơ giấy, đổi target thận trọng hơn (6' → 3'/hồ sơ), thêm điều kiện che dữ liệu cá nhân|
+| Gom cluster / cây OST |Gom 12 candidate (mỗi bạn 3) thành 4 cluster (nhập/phân loại, đối soát, tổng hợp họp/chat, tra cứu trạng thái); viết cây OST gồm 1 outcome và 4 opportunity; gạch 6 ý là solution đội lốt opportunity |Nhóm có cluster và cây OST làm cơ sở chọn candidate |
+| Chọn candidate problem |Candidate được chọn: Candidate #1: Phân loại phản hồi / ticket khiếu nại từ khách hàng để điều phối cho đội kỹ thuật và sản phẩm. | cả nhóm đều chọn candidate 1 |
 | Kiểm chứng / research | | |
-| Quy trình nhóm | | |
-| Problem Statement | | |
-| Mức can thiệp AI | | |
-| Quyết định | | |
+| Quy trình nhóm |Viết Problem Statement v0 (6 trường); nhờ AI chỉ lỗ hổng | Quy trình giảm từ 5 xuống 4 bước, thời gian từ 45' xuống dưới 10' (kỳ vọng), bottleneck chuyển sang bước người kiểm tra.|
+| Problem Statement | Viết Problem Statement v0 (6 trường); nhờ AI chỉ lỗ hổng| Phản biện chỉ ra metric chưa đo độ đúng và baseline là ước lượng; nhóm thêm metric chất lượng ở v1, ghi rõ baseline là ước lượng, bổ sung điều kiện xin phép khi ghi âm|
+| Mức can thiệp AI | Theo mức workflow | vẫn cần con người phải kiểm tra lần cuối |
+| Quyết định | Kết luận chưa đủ | cần phải kiểm chứng thêm |
 
 ---
 
@@ -155,12 +155,12 @@ HIỆN TẠI — 2-3 phút/lần hỏi
 
 | Checkpoint | Tôi dùng AI để làm gì? | AI hữu ích ở đâu? | AI sai hoặc hời hợt ở đâu? | Tôi sửa gì bằng nhận định của mình? |
 |---|---|---|---|---|
-| CP1 Scan | | | | |
-| CP2 Problem Card | | | | |
-| CP4 Research | | | | |
-| CP5 Quy trình | | | | |
-| CP5–6 Problem Statement | | | | |
-| CP6 Mức can thiệp / quyết định | | | | |
+| CP1 Scan |Có nhờ AI để gợi ý tưởng | Liệt kê ra các ý tưởng nhanh chóng | Không có | Tôi không áp dụng được gì từ các gợi ý AI |
+| CP2 Problem Card |nhờ AI hỗ trợ và phản biện các problem card |AI đưa ra những điểm sai cần cải thiện |không có | Tôi áp dụng và chỉnh sửa các ý mà AI cho là sai |
+| CP4 Research | hỗ trợ team trong quá trình hoàn thành phần 4 | gợi ý AI đưa ra có vẻ hợp lý |không có | dựa vào những gọi ý AI đưa ra để hoàn thành |
+| CP5 Quy trình |có nhờ AI hỗ trợ gợi ý sơ đồ ý tưởng |AI gợi ý ý tưởng khá hay |không có |dựa vào gợi ý của AI trong quá trình hoàn thành |
+| CP5–6 Problem Statement | Nhờ AI chỉ ra lỗ hổng, chỗ sai sau khi viết |AI chỉ ra metrics chưa đo độ đúng |không có | bổ sung điều kiện xin phép trước khi ghi âm |
+| CP6 Mức can thiệp / quyết định | nhờ AI thử can thiệp vào hỗ trợ | AI có vẻ khá nhanh trong hỗ trợ công việc | vẫn có tỉ lệ khả năng AI sai sót | vẫn cần phải để con người kiểm tra lần nữa trước khi chốt |
 
 ---
 
@@ -169,17 +169,17 @@ HIỆN TẠI — 2-3 phút/lần hỏi
 Trả lời bằng trải nghiệm thật của bạn, tối thiểu 200 từ cho các câu 6.1–6.6 (không tính 6.7, câu này được chấm riêng ở tiêu chí C5). **Không dùng AI để viết thay.**
 
 **6.1. Tôi học được gì khi nghe top 3 problems của các bạn khác?**
-
+Nghe bài toán đối soát của Đức, hóa đơn của Duẩn và phân loại feedback của Huy, tôi nhận ra điểm mấu chốt là phải xác định đúng bottleneck định lượng. Vấn đề thực sự đáng giải cần có quy trình rõ ràng và đo được bằng thời gian hay tỷ lệ lỗi cụ thể, chứ không chỉ dựa vào cảm giác quá tải hay than phiền chủ quan.
 **6.2. Nhóm có lúc nào bị "solution-first" (nghĩ giải pháp trước khi hiểu vấn đề) không? Lúc đó nhóm nhận ra và xử lý thế nào?**
-
+Nhóm hiện tại chưa bị "Solution-first", nhóm luôn lắng nghe các thành viên giải thích về vấn đề trước khi đưa ra giải pháp
 **6.3. Tôi có đổi ý sau khi bị phản biện không? Kể một lần cụ thể.**
-
+Tôi có. Ban đầu tôi nghĩ AI sẽ giải quyết triệt để việc nhập 150 hồ sơ/tuần. Khi bị nhóm phản biện gắt câu hỏi: "Nếu thời gian chờ hồ sơ giấy còn lâu hơn thời gian gõ thì AI giải quyết được gì?", tôi nhận ra AI chỉ giải quyết được phần ngọn (bước gõ), bởi vậy nên tôi mới quyết định giới hạn lại.
 **6.4. Kết quả kiểm chứng (phỏng vấn/survey/research) có làm tôi bất ngờ không? Điều gì?**
-
+Tôi cũng không bất ngờ lắm vì thường các giáo viên sẽ luôn được yêu cầu mang những gì để nộp hồ sơ để nhập danh sách học viên, việc mang thiếu là do họ chưa có giấy tờ tương ứng hoặc đang đi làm lại
 **6.5. Điều khó nhất khi viết Problem Statement là gì?**
-
+Khó nhất là kiềm chế không gài sẵn chữ "cần AI" vào câu mô tả vấn đề, và phải bấm giờ thực tế từng bộ hồ sơ để lấy baseline chuẩn (khoảng 3 phút/bộ) thay vì phỏng đoán theo cảm tính bực bội hằng ngày
 **6.6. Nếu làm lại, tôi sẽ đổi gì? Tôi sẽ phản biện nhóm mạnh hơn ở điểm nào?**
-
+Tôi sẽ bấm giờ thực tế sớm hơn và phản biện nhóm mạnh mẽ: "Đừng vội tính đến AI khi quy trình đầu vào còn chưa có checklist chuẩn!". Tự động hóa trên một quy trình vốn còn lộn xộn sẽ không giải quyết được gốc rễ vấn đề
 **6.7. Hiểu bài:** giải thích bằng 5–8 câu, không nhìn tài liệu, chuỗi *problem → quy trình → metric → boundary → mức can thiệp AI → quyết định* của bài nhóm mình.
 
 ---
