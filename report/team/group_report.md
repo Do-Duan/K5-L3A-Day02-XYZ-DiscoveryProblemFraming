@@ -66,17 +66,27 @@ Những ý đã gạch bỏ vì là solution đội lốt opportunity:
 
 | Candidate | Actor rõ | Quy trình rõ | Pain có bằng chứng | Impact đo được | Vừa sức lab | So sánh được No AI/Rule/Workflow/Agent | Nhóm hiểu domain | Tổng |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| | | | | | | | | |
-| | | | | | | | | |
-| | | | | | | | | |
+| **#1. Phân loại phản hồi / ticket khiếu nại (Huy)** | 5 | 4 | 5 | 5 | 5 | 5 | 4 | **33** |
+| **#4. Đối soát settlement cổng thanh toán (Đức)** | 4 | 5 | 4 | 4 | 3 | 4 | 4 | **28** |
+| **#10. Nhập hồ sơ học viên lái xe (Dũng)** | 4 | 3 | 4 | 4 | 3 | 3 | 5 | **26** |
+| **#2 & #9. Tóm tắt biên bản họp & action items (Huy & Duẩn)** | 4 | 3 | 3 | 3 | 4 | 3 | 4 | **24** |
+| **#7. Truy xuất & đối soát sổ tay 100+ trang (Duẩn)** | 3 | 2 | 4 | 3 | 2 | 2 | 3 | **19** |
 
 **Candidate được chọn:**
+Candidate #1: Phân loại phản hồi từ khách hàng / người dùng để điều phối xử lý kịp thời (áp dụng cho trực page bán hàng part-time hoặc xử lý form feedback sự kiện CLB).
 
 **Vì sao chọn:**
+1. **Vừa sức lab nhất (Feasibility cao):** Dễ dàng tìm được dataset mẫu (Kaggle/HuggingFace) hoặc tự tạo 30-50 dòng mock data từ Google Form. Xử lý text phi cấu trúc là thế mạnh rõ ràng nhất của LLM để demo trong môn học.
+2. **So sánh rõ rệt các mức độ can thiệp:** Cho phép nhóm dễ dàng thiết kế lab để so sánh sự khác biệt giữa Rule (if/else từ khóa) vs. Workflow (prompt chain phân loại) vs. Agent (tự động phân luồng).
+3. **Đo lường được ngay (Impact):** Có thể đo thời gian một bạn đọc và phân loại bằng tay 50 dòng feedback trên Google Sheets so với dùng script API.
 
 **Vì sao loại các candidate còn lại:**
+- **#4 (Đối soát cổng thanh toán) & #7 (Sổ kế toán):** Bài toán kế toán cần sự chính xác 100%. Cách giải quyết đúng đắn nhất là chuẩn hóa phần mềm (No AI) hoặc viết script Excel/Python (Rule). Dùng AI tạo sinh (LLM) để cộng trừ đối soát tài chính trong lab là sai mục đích sử dụng và dễ bị hallucination sai số.
+- **#10 (Nhập hồ sơ học viên):** Vướng rào cản thao tác vật lý (nhận giấy tờ). Cách giải No AI (bắt buộc dùng Google Form chuẩn ngay từ đầu) giải quyết triệt để hơn là cố nhét AI vào việc nhập liệu lại.
+- **#2 & #9 (Tóm tắt họp):** Khó lấy được data thật (recording họp nội bộ thường bảo mật), và thị trường đã có sẵn các tool như Otter.ai hay Zoom Companion làm quá tốt, nhóm khó tạo ra giá trị mới mẻ trong bài lab.
 
 **Xử lý bất đồng (nếu có):**
+Nhóm từng phân vân candidate #4 (kế toán) do Đức hiểu rất rõ quy trình. Tuy nhiên, khi đánh giá tiêu chí "So sánh được No AI / Rule / AI", nhóm nhận ra bài toán số liệu tài chính giải bằng No AI (chuẩn hóa luồng) hoặc Rule (code logic khớp mã) là tối ưu nhất. Vì vậy, nhóm chốt chọn #1 để tận dụng đúng không gian NLP/Text classification của môn học AI.
 
 ---
 
@@ -86,47 +96,46 @@ Những ý đã gạch bỏ vì là solution đội lốt opportunity:
 
 | # | Giả định | Loại (Value / Usability / Feasibility / Viability) | Quan trọng (1–5) | Đã có bằng chứng (1–5) | Kiểm chứng trước? |
 |---:|---|---|---:|---:|---|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
-| 6 | | | | | |
-
-*Điền 4–6 giả định; xóa dòng thừa.*
+| 1 | Người dùng (trực page/ban sự kiện) sẵn sàng tin nhãn do AI gán thay vì tự đọc từng dòng | Usability | 5 | 2 | Có |
+| 2 | Prompt có thể phân loại đúng >80% các phản hồi có ngôn ngữ lóng, sai chính tả của sinh viên/khách hàng | Feasibility | 5 | 3 | Có |
+| 3 | AI giúp giảm thời gian phân loại xuống tính bằng giây, thay vì 30-40 phút lướt Google Sheets | Value | 4 | 3 | Không |
+| 4 | Có đủ dữ liệu mẫu (mock data hoặc open dataset) sát thực tế để làm bài lab | Feasibility | 4 | 4 | Không |
 
 Giả định nhóm kiểm chứng trong buổi này:
+**Giả định #1 và #2:** Liệu đọc lướt nhãn AI gán có nhanh hơn thật không, hay người dùng vẫn không tin và phải đọc lại toàn bộ text gốc; và text thực tế viết tắt, lủng củng thì AI có bắt được ý không.
 
 ### 3.2. Kiểm chứng
 
-Cách đã dùng: Phỏng vấn / Survey / Log, ticket, review
+Cách đã dùng: Phỏng vấn chéo bạn học trong lớp (từng làm part-time trực page/CSKH hoặc Ban Sự kiện CLB) + Review nhanh 20 dòng sample text giả lập.
 
-Interview snapshot (mỗi buổi phỏng vấn một bảng, hoặc đặt file trong `report/assets/cp4-interview-snapshot-N.md`):
+Interview snapshot:
 
 | Trường | Nội dung |
 |---|---|
-| Người được hỏi (vai trò, không ghi tên thật) | |
-| Câu nói đáng nhớ nhất (nguyên văn) | |
-| Lần gần nhất gặp vấn đề này: chuyện gì đã xảy ra? | |
-| Hiện đang xử lý bằng cách nào (workaround)? | |
-| Mất bao lâu, bao lần? | |
-| Insight / opportunity rút ra | |
+| Người được hỏi (vai trò, không ghi tên thật) | Một bạn sinh viên lớp kế bên, từng trực page bán áo thun part-time và quản lý form feedback sự kiện CLB. |
+| Câu nói đáng nhớ nhất (nguyên văn) | *"Đọc form feedback sự kiện mờ cả mắt. Nhiều lúc form có 100 responses, đọc đến dòng 30 là lú luôn, toàn phải tự add thêm một cột trên Excel rồi gõ tay tag 'chê đồ ăn', 'lỗi link', 'khen' để cuối ngày báo cáo."* |
+| Lần gần nhất gặp vấn đề này: chuyện gì đã xảy ra? | Đợt CLB tổ chức sự kiện tuần trước, có trục trặc link đăng ký. Sinh viên nhắn tin vào page và điền form dồn dập, mất gần 45 phút copy/paste và gom nhóm lỗi để báo ban Kỹ thuật sửa link. |
+| Hiện đang xử lý bằng cách nào (workaround)? | Export Google Sheets, dùng filter (bộ lọc) Ctrl+F từ khóa "lỗi", "không được", rồi gắn nhãn thủ công từng dòng. |
+| Mất bao lâu, bao lần? | Tốn 30-45 phút mỗi đợt chốt form/ca trực. |
+| Insight / opportunity rút ra | Bạn này không cần AI tự động reply khách. Bạn ấy chỉ cần AI đọc cái sheet đó, gán sẵn tag (VD: Lỗi kỹ thuật, Hỏi thông tin, Phàn nàn) vào cột bên cạnh để bạn ấy chỉ việc lướt mắt kiểm tra rồi đem báo cáo. |
 
 Tổng hợp:
 
 | Nguồn | Số người / số mẫu | Tín hiệu xác nhận | Tín hiệu phản bác |
 |---|---:|---|---|
-| | | | |
+| Phỏng vấn chéo sinh viên | 2 người | Rất mất thời gian khi phải gom nhóm ý kiến lộn xộn. Sẵn sàng dùng tool nếu nó tích hợp thẳng vào file Excel/Sheets. | Nếu AI gán nhãn sai 1-2 lần đầu, họ sẽ mất lòng tin và thà tự đọc tay từ đầu cho chắc ăn. Cần có cơ chế giải thích lý do ngắn gọn. |
+| Review sample text (20 dòng) | 20 mẫu câu | Nhiều câu không có từ khóa rõ ràng ("app dỏm thế", "ấn mãi chả hiện gì"), dùng Rule if/else tìm từ khóa "lỗi" sẽ bị trượt. | Vẫn có những câu chung chung ("không thích lắm") khó để AI xếp vào một nhóm kỹ thuật cụ thể. |
 
 **Nhóm đã sửa problem thế nào sau kiểm chứng:**
+Nhóm nhận ra rào cản Usability (mất niềm tin nếu AI sai). Vì vậy, rút gọn scope: AI không tự động gửi ticket đi, mà chỉ làm nhiệm vụ "Drafting/Tagging" trên bảng tính. Output của AI phải bao gồm 2 cột: `Nhãn (Label)` và `Lý do trích xuất (Trích 3-4 chữ từ câu gốc)`. Việc có cột "Lý do" giúp người dùng lướt kiểm tra (Human-in-the-Loop) cực nhanh mà không cần đọc hết câu dài.
 
 ### 3.3. Research giải pháp đã có
 
 | Công cụ / case / pattern | Link | Giải bước nào trong quy trình? | Điểm mạnh | Khoảng trống / rủi ro | Bài học cho nhóm |
 |---|---|---|---|---|---|
-| | | | | | |
-| | | | | | |
-| | | | | | |
+| **Google Sheets - Bộ lọc / IF(SEARCH())** | Tính năng sẵn có | Dùng hàm dò từ khóa (Rule) để phân loại | Miễn phí, sẵn có, chạy ngay trên file làm việc | Chỉ bắt được từ khóa tĩnh, sai chính tả là trượt, không hiểu ngữ cảnh câu dài | Sẽ dùng cách này làm Baseline (No AI/Rule) để so sánh hiệu năng trong Lab. |
+| **Tiện ích GPT for Sheets** | workspace.google.com/marketplace | Gọi hàm `=GPT_CLASSIFY()` trực tiếp trong ô Sheets | Nhanh, đáp ứng đúng nhu cầu xử lý hàng loạt trên bảng tính | Trả phí token, prompt mặc định đôi khi trả về format lung tung không đúng bộ nhãn | Cần thiết kế Workflow/Prompt kỹ lưỡng (Few-shot, ép output JSON/chuẩn nhãn) thay vì dùng prompt zero-shot trần. |
+| **Zendesk / Freshdesk** | zendesk.com | Phân luồng ticket tự động toàn hệ thống | Chuyên nghiệp, độ chính xác cao cho doanh nghiệp | Quá cồng kềnh, đắt tiền, không phù hợp cho các quy mô nhỏ (CLB, part-time) hoặc để làm mini-lab | Giải pháp lab của nhóm (gọi API phân loại nhẹ) sẽ là phiên bản "micro" thay thế giá rẻ, tập trung xử lý khâu bottleneck nhất. |
 
 ---
 
