@@ -60,7 +60,7 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 
 **Phần việc phụ trách:**
 
--
+- Hỗ trợ research, thực hiện một số phần của bài
 
 **Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
 
@@ -72,7 +72,7 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 
 **Điều mình học được từ phần nhóm:**
 
--
+- Nhận ra giá trị của phản biện nhóm để xác định rõ ranh giới (boundary), luôn giữ con người kiểm duyệt (Human-in-the-loop) thay vì tự động hóa hoàn toàn.
 
 ### DoDucDuan-2A202603590
 
