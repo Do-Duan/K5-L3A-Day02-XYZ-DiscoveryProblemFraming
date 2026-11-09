@@ -13,7 +13,7 @@
 | STT | Họ và tên | MSSV | Vai trò trong nhóm | Tài khoản GitHub |
 |---:|---|---|---|---|
 | 1 | Phạm Hồng Khánh Huy | 2A202603588 | ghi chép, phụ trách research | https://github.com/khanhhuy1714-hue |
-| 2 | Bùi Nguyên Dũng |2A202603587 | |https://github.com/Nesto08 |
+| 2 | Bùi Nguyên Dũng |2A202603587 | hỗ trợ research, thực hiện một số phần việc |https://github.com/Nesto08 |
 | 3 |Đỗ Đức Duẩn |2A202603590 | |https://github.com/Do-Duan |
 | 4 |Đậu Phúc Đức |2A202603580 | |https://github.com/dpduc313 |
 
