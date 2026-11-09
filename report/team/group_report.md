@@ -18,9 +18,9 @@
 
 | # | Người đưa ra | Candidate (Job Story ngắn) | Actor | Bottleneck | Câu hỏi phản biện nhận được (ai hỏi) |
 |---:|---|---|---|---|---|
-| 1 | Huy | Khi tiếp nhận phản hồi từ khách hàng qua form khảo sát hoặc ticket khiếu nại, tôi muốn phân loại các nhóm lỗi phổ biến nhất trong tuần, để chuyển đúng cho đội kỹ thuật xử lý kịp thời. | Nhân viên Customer Support (CS) / Product Team. | tốn khoảng 40 phút/ngày, lặp đi lặp lại, dễ bị thiên kiến hoặc sai sót. | Ticket nhận về expect có bao nhiêu nhãn -> đơn vị xử lý các ticket đó là ai -> mỗi bước tốn khoảng bao nhiêu thời gian |
-| 2 | Huy | Khi kết thúc các buổi họp giao ban hàng tuần, tôi muốn ghi nhận nhanh các quyết định và action items, để phân công công việc kịp thời mà không bị sót ý hay hiểu lầm. | Người ghi chép (PM / thư ký / lead) | Bước 1 (vừa họp vừa ghi dễ sót ý, mất tập trung) và Bước 3, 4 (sắp xếp và gõ lại mất 30-45 phút). | Hướng giải quyết sử dụng AI sẽ giải quyết như thế nào |
-| 3 | Huy | Khi mở ứng dụng chat công việc sau 1 ngày nghỉ phép, tôi muốn nắm bắt ngay các quyết định hoặc sự cố đã giải quyết, để bắt nhịp lại luồng công việc mà không cần cuộn đọc từng tin một. | Nhân viên nghỉ phép quay lại làm (hoặc đồng nghiệp cùng ca). | (Đọc lướt và lọc thông tin): tốn 15-20 phút, nhiễu loạn thông tin. | Thời gian nghỉ phép không nhiều, không có quá nhiều giá trị |
+| 1 | Huy | Khi tiếp nhận phản hồi từ khách hàng qua form khảo sát hoặc ticket khiếu nại, tôi muốn phân loại các nhóm lỗi phổ biến nhất trong tuần, để chuyển đúng cho đội kỹ thuật xử lý kịp thời. | Nhân viên Customer Support (CS) / Product Team. | tốn khoảng 40 phút/ngày, lặp đi lặp lại, dễ bị thiên kiến hoặc sai sót. | Ticket nhận về expect có bao nhiêu nhãn -> đơn vị xử lý các ticket đó là ai -> mỗi bước tốn khoảng bao nhiêu thời gian (Đức) |
+| 2 | Huy | Khi kết thúc các buổi họp giao ban hàng tuần, tôi muốn ghi nhận nhanh các quyết định và action items, để phân công công việc kịp thời mà không bị sót ý hay hiểu lầm. | Người ghi chép (PM / thư ký / lead) | Bước 1 (vừa họp vừa ghi dễ sót ý, mất tập trung) và Bước 3, 4 (sắp xếp và gõ lại mất 30-45 phút). | Hướng giải quyết sử dụng AI sẽ giải quyết như thế nào (Đức) |
+| 3 | Huy | Khi mở ứng dụng chat công việc sau 1 ngày nghỉ phép, tôi muốn nắm bắt ngay các quyết định hoặc sự cố đã giải quyết, để bắt nhịp lại luồng công việc mà không cần cuộn đọc từng tin một. | Nhân viên nghỉ phép quay lại làm (hoặc đồng nghiệp cùng ca). | (Đọc lướt và lọc thông tin): tốn 15-20 phút, nhiễu loạn thông tin. | Thời gian nghỉ phép không nhiều, không có quá nhiều giá trị (Đức và Dũng) |
 | 4 | Đức | Khi nhận file settlement buổi sáng từ các cổng thanh toán, Mai muốn biết giao dịch nào chưa khớp với đơn trên hệ thống bán hàng, để xử lý lệch trước khi ghi sổ doanh thu trong ngày | Kế toán | rà dòng lệch: khoảng 25 phút. Mỗi dòng phải mở 2 hệ thống, dù nguyên nhân thường lặp lại (hoàn một phần, đơn tách, lệch ngày) | Các công cụ quản lý doanh nghiệp hiện tại đã làm tốt công việc này chưa? tự động hóa chưa? chi phí thế nào? |
 | 5 | Đức | Khi sao kê có khoản tiền vào với nội dung chuyển khoản không chuẩn, tôi muốn xác định khoản đó thuộc đơn hoặc khách nào, để gạch công nợ và xác nhận đơn đúng | Kế toán, CSKH | đoán và hỏi: khoảng 30 phút. Kết quả phụ thuộc trí nhớ và việc người khác có trả lời kịp không | Việc này có thường xuyên xảy ra không? có value thực sự? |
 | 6 | Đức | Khi sếp hỏi “hôm nay tiền về bao nhiêu, còn bao nhiêu”, Mai muốn trả lời bằng số đã đối soát trong vài phút, để sếp quyết định duyệt chi ngay | CEO, Kế toán | Số liệu nằm rải rác ở nhiều portal | task bất chợt nên khó đo lường baseline |
@@ -146,36 +146,55 @@ Nhóm nhận ra rào cản Usability (mất niềm tin nếu AI sai). Vì vậy,
 Sơ đồ (ASCII, Mermaid hoặc link ảnh trong `report/assets/`):
 
 ```text
+HIỆN TẠI — 5 bước, 45 phút sau mỗi buổi họp (ước lượng), 5/5 bước thủ công
 
+[1 Họp + ghi chú nhanh: trong buổi họp]
+→ [2 Đọc lại ghi chú, chắp vá chỗ thiếu: 15'] ← BOTTLENECK
+→ [3 Soạn biên bản (Word): 20'] ← BOTTLENECK
+→ [4 Lọc action items, phân công: 7']
+→ [5 Gửi email / chat nhóm: 3']
 ```
 
 | Bước | Actor | Input | Output | Thời gian / tần suất | Ghi chú |
 |---:|---|---|---|---|---|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| 1 |Người ghi chép (PM / thư ký / lead) |Nội dung buổi họp | Ghi chú thô (tay hoặc laptop)|Trong buổi họp; 1–2 buổi/tuần | Vừa họp vừa ghi nên dễ sót ý|
+| 2 |Người ghi chép |Ghi chú thô |Ghi chú đã bổ sung chỗ thiếu |15' |Ghi chú lộn xộn, phải chắp vá |
+| 3 | Người ghi chép|Ghi chú đã bổ sung | Biên bản họp (Word)|20' | Gõ lại toàn bộ|
+| 4 | Người ghi chép|Biên bản |Danh sách việc: người phụ trách, hạn |7' (ước lượng) |Dễ sót action item (~20%) |
+| 5 |Người ghi chép → thành viên họp | Biên bản và danh sách việc|Thông báo đến cả nhóm| 3'|Thành viên hay nhắn hỏi lại “việc này deadline bao giờ” |
 
-**Bottleneck chính:**
+**Bottleneck chính:**: Bước 2 và 3 (đọc lại ghi chú và soạn biên bản): khoảng 35 phút mỗi buổi, 1–2 buổi mỗi tuần.
 
 ### 4.2. Quy trình tương lai
 
 Ghi rõ bước nào **Rule**, bước nào **AI**, bước nào **con người**, **boundary** ở đâu, **phương án quay về** khi AI sai.
 
 ```text
+TƯƠNG LAI — 4 bước, khoảng 10 phút, 2/4 bước thủ công
 
+[1 Lấy bản ghi âm / transcript buổi họp: ~1']          ← CÔNG CỤ (tự động)
+→ [2 Tóm tắt: quyết định + action items (người, hạn)
+     vào template biên bản chuẩn: ~2']                  ← AI (chỉ tạo bản nháp)
+→ [3 Người ghi chép đối chiếu với ghi chú, sửa: ~5']    ← CON NGƯỜI
+→ [4 Gửi biên bản: ~1']                                  ← CON NGƯỜI
+
+RULE: template biên bản cố định (mục quyết định, mục action item gồm người và hạn).
+BOUNDARY: AI không tự gửi biên bản, không tự giao việc hay đặt deadline,
+          không thêm quyết định không có trong buổi họp; chỉ dùng nội dung buổi họp đó.
+          Người luôn kiểm tra tên người phụ trách và deadline trước khi gửi.
+PHƯƠNG ÁN QUAY VỀ: bản nháp thiếu hoặc sai nhiều (transcript lỗi, thuật ngữ nội bộ)
+          → bỏ bản nháp, soạn theo template cũ từ ghi chú tay.
 ```
 
 ### 4.3. Before / after
 
 | Chỉ số | Trước | Sau (kỳ vọng) | Ghi chú |
 |---|---:|---:|---|
-| Số bước | | | |
-| Tổng thời gian | | | |
-| Số bước thủ công | | | |
-| Bottleneck chính | | | |
-| Rủi ro mới phát sinh | | | |
+| Số bước | 5| 4| |
+| Tổng thời gian | 45 phút| dưới 10' |Target chính dưới 10' (Huy); Duẩn đặt dưới 5' |
+| Số bước thủ công |5/5 |2/4 | Người vẫn kiểm tra và gửi|
+| Bottleneck chính |Đọc lại ghi chú + soạn biên bản |Người kiểm tra + sửa bản nháp | Chấp nhận được vì là điểm kiểm soát chất lượng|
+| Rủi ro mới phát sinh |Không | AI gán sai người phụ trách hoặc deadline, bịa quyết định, nhầm thuật ngữ nội bộ, lộ nội dung họp| Xử lý bằng boundary, người duyệt và phương án quay về|
 
 ---
 
@@ -183,16 +202,16 @@ Ghi rõ bước nào **Rule**, bước nào **AI**, bước nào **con người*
 
 | Trường | Nội dung |
 |---|---|
-| **Actor** | |
-| **Quy trình** | |
-| **Bottleneck** | |
-| **Impact** | |
-| **Success Metric** (baseline → target, cách đo) | |
-| **Boundary** (AI không được làm gì; khi nào cần con người kiểm tra — HITL) | |
+| **Actor** |Người ghi chép biên bản (PM / thư ký / lead) cho các thành viên tham gia họp |
+| **Quy trình** |Sau mỗi buổi họp: đọc lại ghi chú, soạn biên bản, lọc action items, gửi nhóm|
+| **Bottleneck** |Đọc lại ghi chú và soạn biên bản mất khoảng 35 phút, vì vừa họp vừa ghi nên dễ sót ý |
+| **Impact** |45 phút/buổi, 1–2 buổi/tuần; thành viên nhắn hỏi lại deadline, dễ quên việc được giao |
+| **Success Metric** (baseline → target, cách đo) |Thời gian 45' → dưới 10'/buổi; sót action item 20% → dưới 2%. Đo bằng cách bấm giờ 5 buổi gần nhất, rồi 4 tuần pilot, đối chiếu với danh sách chốt cuối |
+| **Boundary** (AI không được làm gì; khi nào cần con người kiểm tra — HITL) | AI chỉ tạo bản nháp, không tự gửi, không tự giao việc, không bịa quyết định. Người luôn kiểm tra người phụ trách và deadline trước khi gửi|
 
 Phản biện nhận được (từ AI hoặc nhóm khác) và nhóm có đồng ý không:
 
--
+- AI chỉ ra metric chỉ đo tốc độ và tỉ lệ sót việc, chưa đo độ đúng của nội dung (gán sai người phụ trách hoặc deadline), và baseline 45' / 20% mới là ước lượng. Nhóm đồng ý, thêm metric chất lượng ở v1 và ghi rõ baseline là ước lượng sẽ đo lại. Boundary được bổ sung điều kiện xin phép khi ghi âm.
 
 ---
 
@@ -200,38 +219,38 @@ Phản biện nhận được (từ AI hoặc nhóm khác) và nhóm có đồng
 
 ### 6.1. Ma trận độ mơ hồ × độ phức tạp
 
-Bài của nhóm nằm ở ô:
+Bài của nhóm nằm ở mức **độ mơ hồ trung bình, độ phức tạp thấp–trung bình**: lời nói trong họp có thể thiếu rõ ràng, nhưng đầu ra cần tạo khá cố định (quyết định và action items theo mẫu).
 
-Vì sao:
+Vì sao: AI cần hiểu transcript để tóm tắt và trích người phụ trách, deadline; còn template, bước kiểm tra và gửi đã có quy trình rõ.
 
 ### 6.2. So sánh 4 mức
 
 | Mức | Phương án cho bài của nhóm | Đủ khi nào | Rủi ro | Chọn? |
 |---|---|---|---|---|
-| **No AI** (sửa quy trình) | | | | |
-| **Rule** | | | | |
-| **Workflow** | | | | |
-| **Agent** | | | | |
+| **No AI** (sửa quy trình) | Dùng template và checklist; người vẫn đọc lại, gõ biên bản và tổng hợp việc. | Khi số buổi họp ít hoặc thời gian hiện tại chấp nhận được. | Vẫn mất khoảng 35 phút đọc lại và soạn; dễ sót việc. | Chưa chọn |
+| **Rule** | Template cố định, quy tắc kiểm tra mục quyết định, người phụ trách và deadline. | Đủ để chuẩn hóa định dạng và báo trường còn thiếu. | Không tự hiểu được ghi chú/transcript tự nhiên, lộn xộn. | Dùng hỗ trợ |
+| **Workflow** | Công cụ lấy transcript → AI tạo nháp theo template → người ghi chép kiểm tra, sửa và gửi. | Khi AI giúp rút thời gian soạn, còn người kiểm tra trước khi gửi. | AI có thể tóm tắt sai hoặc gán nhầm người/hạn; cần kiểm tra và phương án quay về. | **Chọn** |
+| **Agent** | AI tự quyết định nội dung, giao việc hoặc gửi biên bản. | Chỉ cân nhắc nếu cần tự chủ và độ tin cậy đã được chứng minh. | Có thể bịa quyết định, giao sai việc hoặc gửi nội dung chưa duyệt. | Không chọn |
 
-**Mức chọn:**
+**Mức chọn:** Workflow, AI chỉ tạo bản nháp; con người kiểm tra và quyết định gửi.
 
-**Vì sao không chọn mức đơn giản hơn:**
+**Vì sao không chọn mức đơn giản hơn:** Template/Rule chỉ chuẩn hóa biểu mẫu, không chắt lọc được quyết định và action items từ lời nói tự nhiên. AI hỗ trợ đúng bước tốn thời gian; người vẫn duyệt để giảm rủi ro.
 
 ### 6.3. AI Canvas rút gọn
 
 | Thành phần | Nội dung |
 |---|---|
-| **Prediction** — AI dự đoán / tạo ra gì? | |
-| **Judgment** — con người cân nhắc, quyết định gì? | |
-| **Action** — hành động cuối cùng là gì, ai làm? | |
-| **Outcome** — đo kết quả bằng gì? | |
-| **Input** — AI cần dữ liệu đầu vào gì mỗi lần chạy? Có sẵn không? | |
-| **Feedback** — lấy phản hồi ở đâu để cải thiện? | |
+| **Prediction** — AI dự đoán / tạo ra gì? | Bản nháp tóm tắt quyết định và action items, gồm người phụ trách, deadline, theo template. |
+| **Judgment** — con người cân nhắc, quyết định gì? | Người ghi chép đối chiếu với transcript/ghi chú, sửa nội dung, người và hạn; quyết định có thể gửi chưa. |
+| **Action** — hành động cuối cùng là gì, ai làm? | Người ghi chép gửi biên bản đã duyệt; AI không tự gửi hoặc giao việc. |
+| **Outcome** — đo kết quả bằng gì? | Thời gian 45 phút xuống dưới 10 phút/buổi; tỷ lệ sót việc ước lượng 20% xuống dưới 2%; đo lại trong pilot. |
+| **Input** — AI cần dữ liệu đầu vào gì mỗi lần chạy? Có sẵn không? | Transcript hoặc bản ghi âm được phép dùng, cùng template; ghi chú hiện có, transcript cần được tạo. |
+| **Feedback** — lấy phản hồi ở đâu để cải thiện? | Ghi lại các lỗi/sửa của người duyệt như sót việc, sai người/hạn; dùng để chỉnh prompt và checklist. |
 
 ### 6.4. Hai câu hỏi của Google PAIR
 
-- Người dùng muốn **được hỗ trợ (augment)** hay **giao hẳn việc (automate)**? Bằng chứng:
-- AI sai kiểu nào tệ hơn, **báo nhầm** hay **bỏ sót**? Vì sao, và thiết kế đã xử lý thế nào:
+- Người dùng muốn **được hỗ trợ (augment)** hay **giao hẳn việc (automate)**? Bằng chứng: **Được hỗ trợ**. Người ghi chép vẫn đối chiếu và duyệt biên bản; AI không tự gửi hay phân công.
+- AI sai kiểu nào tệ hơn, **báo nhầm** hay **bỏ sót**? Vì sao, và thiết kế đã xử lý thế nào: **Bỏ sót action item** có thể khiến việc không được làm; báo nhầm người hoặc deadline cũng gây rối. Người ghi chép kiểm tra bản nháp, nhất là quyết định, người phụ trách và hạn; nếu sai nhiều thì quay lại soạn từ ghi chú tay.
 
 ---
 
@@ -239,29 +258,32 @@ Vì sao:
 
 | Trường | Nội dung |
 |---|---|
-| **Actor** | |
-| **Quy trình** | |
-| **Bottleneck** | |
-| **Impact** | |
-| **Success Metric** (baseline → target, cách đo) | |
-| **Boundary** | |
-| **AI intervention point** | |
-| **Mức chọn** | No AI / Rule / Workflow / Agent |
-| **Rủi ro & người kiểm tra** | |
+| **Actor** | Người ghi chép biên bản (PM / thư ký / lead) và các thành viên dự họp. |
+| **Quy trình** | Sau họp, lấy transcript được phép sử dụng, tạo bản nháp theo template, người ghi chép đối chiếu và sửa rồi gửi cho nhóm. |
+| **Bottleneck** | Đọc lại ghi chú và soạn biên bản mất khoảng 35 phút/buổi; ghi chú nhanh dễ thiếu ý. |
+| **Impact** | Tổng cộng khoảng 45 phút/buổi, 1–2 buổi/tuần; action item có thể bị sót, thành viên phải hỏi lại deadline. |
+| **Success Metric** (baseline → target, cách đo) | Thời gian ước lượng 45' → dưới 10'/buổi; tỷ lệ sót action item ước lượng 20% → dưới 2%; độ chính xác người phụ trách/deadline ≥95%, không có quyết định bị AI tự thêm. Đo thời gian và đối chiếu bản nháp với biên bản đã duyệt trong 4 tuần pilot; đo lại baseline vì số hiện tại là ước lượng. |
+| **Boundary** | Chỉ tạo bản nháp từ nội dung buổi họp; chỉ ghi âm khi người tham gia đồng ý. AI không tự gửi, giao việc, đặt deadline hay thêm quyết định. Người ghi chép phải kiểm tra nội dung, người phụ trách và hạn; sai nhiều thì quay về soạn theo template từ ghi chú tay. |
+| **AI intervention point** | Sau khi có transcript: tóm tắt quyết định và đề xuất action items (nội dung, người phụ trách, deadline) vào template. |
+| **Mức chọn** | **Workflow** — AI tạo nháp, người ghi chép duyệt và gửi. |
+| **Rủi ro & người kiểm tra** | AI có thể sót việc, bịa quyết định hoặc gán sai người/hạn; người ghi chép kiểm tra với transcript/ghi chú trước khi gửi. |
 
 **Thay đổi so với v0 và lý do:**
 
 | Trường | v0 | v1 | Vì sao đổi |
 |---|---|---|---|
-| | | | |
+| Metric | Chỉ đo thời gian và tỷ lệ sót việc; baseline đang là ước lượng. | Thêm độ chính xác người phụ trách/deadline và yêu cầu không có quyết định tự thêm; đo lại baseline trong pilot. | Phản biện cho thấy cần đo chất lượng nội dung, không chỉ tốc độ. |
+| Boundary | AI chỉ tạo nháp, không gửi/giao việc/bịa quyết định. | Bổ sung chỉ ghi âm khi có sự đồng ý; giữ người duyệt và phương án quay về. | Giảm rủi ro riêng tư và lỗi nội dung. |
+| Mức can thiệp | Chưa chốt. | Workflow có người kiểm tra. | AI cần hiểu lời nói tự nhiên; Rule chỉ chuẩn hóa template, còn Agent có quyền quá rộng. |
 
 **Tiêu chí đánh giá đầu ra của AI (3–5 tiêu chí):**
 
 | # | Tiêu chí | Đạt khi | Không đạt khi |
 |---:|---|---|---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
+| 1 | Độ đầy đủ action items | Đối chiếu với transcript/ghi chú, không bỏ sót việc đã được giao. | Bỏ sót một việc đã được giao hoặc thêm việc không có trong buổi họp. |
+| 2 | Đúng người phụ trách và deadline | Mọi người/hạn trong nháp khớp nội dung họp hoặc được đánh dấu chưa rõ để người ghi chép xác nhận. | Gán sai người/hạn hoặc tự đoán thông tin chưa được nêu. |
+| 3 | Trung thực với nội dung họp | Tóm tắt đúng quyết định; không tự thêm quyết định, kết luận hay chi tiết. | Có nội dung không tìm thấy căn cứ trong transcript/ghi chú. |
+| 4 | Đúng mẫu, dễ rà soát | Có đủ mục quyết định và action items theo template; câu chữ ngắn, rõ. | Thiếu mục, sai cấu trúc hoặc khó xác định việc cần làm. |
 
 ---
 
