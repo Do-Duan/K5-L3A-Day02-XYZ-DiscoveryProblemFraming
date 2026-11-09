@@ -12,7 +12,7 @@
 
 | STT | Họ và tên | MSSV | Vai trò trong nhóm | Tài khoản GitHub |
 |---:|---|---|---|---|
-| 1 | Phạm Hồng Khánh Huy | 2A202603588 |  | https://github.com/khanhhuy1714-hue |
+| 1 | Phạm Hồng Khánh Huy | 2A202603588 | ghi chép, phụ trách research | https://github.com/khanhhuy1714-hue |
 | 2 | Bùi Nguyên Dũng |2A202603587 | |https://github.com/Nesto08 |
 | 3 |Đỗ Đức Duẩn |2A202603590 | |https://github.com/Do-Duan |
 | 4 |Đậu Phúc Đức |2A202603580 | |https://github.com/dpduc313 |
@@ -26,7 +26,7 @@ Gợi ý vai trò (một người có thể giữ nhiều vai): điều phối t
 | Checkpoint | Người chính | Người hỗ trợ | Sản phẩm |
 |---|---|---|---|
 | CP3 — Hội tụ nhóm | | | Cluster, cây OST, bảng chấm điểm |
-| CP4 — Kiểm chứng | | | Assumption map, snapshot hoặc survey |
+| CP4 — Kiểm chứng | Huy | Đức | Assumption map, snapshot hoặc survey |
 | CP4 — Research | Huy | Dũng | Bảng research có link |
 | CP5 — Quy trình trước/sau | | | Quy trình + bảng before/after |
 | CP5 — Problem Statement v0 | | | Problem Statement v0 |
@@ -42,7 +42,7 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 
 **Phần việc phụ trách:**
 
-- ghi chép, phụ trách research
+- 
 
 **Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
 
