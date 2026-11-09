@@ -7,8 +7,8 @@
 
 - Tên nhóm: XYZ
 - Thành viên: xem `TEAM.md`
-- Candidate problem được chọn (1 câu): Phân loại phản hồi từ khách hàng / người dùng để điều phối xử lý kịp thời (áp dụng cho trực page bán hàng part-time hoặc xử lý form feedback sự kiện CLB).
-- Quyết định cuối: Go / Not Yet / No-Go
+- Candidate problem được chọn (1 câu): Sau mỗi buổi họp nhóm, người ghi chép mất khoảng 45 phút đọc lại ghi chú và soạn biên bản, và vẫn để sót action item (người phụ trách, deadline).
+- Quyết định cuối: Go, pilot nhỏ 4 tuần, cần xác nhận Viability (quyền ghi âm, chính sách dữ liệu) trước khi bắt đầu
 
 ---
 
@@ -96,13 +96,12 @@ Nhóm từng phân vân candidate #4 (kế toán) do Đức hiểu rất rõ quy
 
 | # | Giả định | Loại (Value / Usability / Feasibility / Viability) | Quan trọng (1–5) | Đã có bằng chứng (1–5) | Kiểm chứng trước? |
 |---:|---|---|---:|---:|---|
-| 1 | Người dùng (trực page/ban sự kiện) sẵn sàng tin nhãn do AI gán thay vì tự đọc từng dòng | Usability | 5 | 2 | Có |
-| 2 | Prompt có thể phân loại đúng >80% các phản hồi có ngôn ngữ lóng, sai chính tả của sinh viên/khách hàng | Feasibility | 5 | 3 | Có |
-| 3 | AI giúp giảm thời gian phân loại xuống tính bằng giây, thay vì 30-40 phút lướt Google Sheets | Value | 4 | 3 | Không |
-| 4 | Có đủ dữ liệu mẫu (mock data hoặc open dataset) sát thực tế để làm bài lab | Feasibility | 4 | 4 | Không |
+| 1 | Người ghi chép thật sự mất khoảng 45 phút/buổi (đọc lại ghi chú + soạn biên bản) và thường sót action item | Value | 5 | 3 | Không — đã có trải nghiệm trực tiếp của Huy và Duẩn (card #2, #9), cần đo lại trong pilot |
+| 2 | Người ghi chép chịu đối chiếu và sửa bản nháp AI thay vì bỏ đi và tự gõ lại từ đầu | Usability | 5 | 2 | Có |
+| 3 | Có transcript tiếng Việt đủ chính xác (tên người, thuật ngữ, từ tiếng Anh xen kẽ) để AI tóm tắt đúng | Feasibility | 4 | 3 | Có — một phần đã kiểm qua research 3.3 |
+| 4 | Thành viên đồng ý cho ghi âm/transcript, và tổ chức cho phép đưa nội dung họp vào công cụ AI | Viability | 5 | 1 | Có |
 
-Giả định nhóm kiểm chứng trong buổi này:
-**Giả định #1 và #2:** Liệu đọc lướt nhãn AI gán có nhanh hơn thật không, hay người dùng vẫn không tin và phải đọc lại toàn bộ text gốc; và text thực tế viết tắt, lủng củng thì AI có bắt được ý không.
+Giả định nhóm kiểm chứng trước: **#2 và #4** (quan trọng nhất nhưng ít bằng chứng nhất). #3 kiểm bằng research công cụ có sẵn ở mục 3.3.
 
 ### 3.2. Kiểm chứng
 
@@ -133,9 +132,11 @@ Nhóm nhận ra rào cản Usability (mất niềm tin nếu AI sai). Vì vậy,
 
 | Công cụ / case / pattern | Link | Giải bước nào trong quy trình? | Điểm mạnh | Khoảng trống / rủi ro | Bài học cho nhóm |
 |---|---|---|---|---|---|
-| **Google Sheets - Bộ lọc / IF(SEARCH())** | Tính năng sẵn có | Dùng hàm dò từ khóa (Rule) để phân loại | Miễn phí, sẵn có, chạy ngay trên file làm việc | Chỉ bắt được từ khóa tĩnh, sai chính tả là trượt, không hiểu ngữ cảnh câu dài | Sẽ dùng cách này làm Baseline (No AI/Rule) để so sánh hiệu năng trong Lab. |
-| **Tiện ích GPT for Sheets** | workspace.google.com/marketplace | Gọi hàm `=GPT_CLASSIFY()` trực tiếp trong ô Sheets | Nhanh, đáp ứng đúng nhu cầu xử lý hàng loạt trên bảng tính | Trả phí token, prompt mặc định đôi khi trả về format lung tung không đúng bộ nhãn | Cần thiết kế Workflow/Prompt kỹ lưỡng (Few-shot, ép output JSON/chuẩn nhãn) thay vì dùng prompt zero-shot trần. |
-| **Zendesk / Freshdesk** | zendesk.com | Phân luồng ticket tự động toàn hệ thống | Chuyên nghiệp, độ chính xác cao cho doanh nghiệp | Quá cồng kềnh, đắt tiền, không phù hợp cho các quy mô nhỏ (CLB, part-time) hoặc để làm mini-lab | Giải pháp lab của nhóm (gọi API phân loại nhẹ) sẽ là phiên bản "micro" thay thế giá rẻ, tập trung xử lý khâu bottleneck nhất. |
+| **Google Meet — "Take notes for me" (Gemini)** | [support.google.com/meet/answer/14754931](https://support.google.com/meet/answer/14754931?hl=en) | Bước 2–4: tự tạo Google Docs gồm tóm tắt, quyết định, "next steps" (việc cần làm, việc được giao) | Ra đúng cấu trúc biên bản nhóm cần (Summary, Decisions, Next steps), không phải tự gõ lại | Chỉ hỗ trợ English, French, German, Italian, Japanese, Korean, Portuguese, Spanish — **không có tiếng Việt**; "supports one language at a time"; cần gói Workspace/Google AI phù hợp; Google tự ghi tóm tắt "can be incomplete, inaccurate, or not generated" | Không dùng được nguyên trạng cho họp tiếng Việt. Ngay cả nhà cung cấp cũng cảnh báo tóm tắt có thể sai, nên bước người kiểm tra là bắt buộc. |
+| **Microsoft Teams — Live transcription** | [support.microsoft.com — live transcripts in Teams](https://support.microsoft.com/office/dc1a8f23-2e20-4684-885e-2152e06a4a8b) | Bước 1: tạo transcript có tên người nói và mốc thời gian, tải về .docx/.vtt | Danh sách ngôn ngữ có **Vietnamese (Vietnam)**; transcript gắn tên từng người nói, giúp gán đúng người phụ trách | Chỉ là transcript, không tóm tắt hay lọc action item; độ chính xác phụ thuộc chọn đúng ngôn ngữ nói ("make sure the meeting spoken language reflects the language everyone is speaking") | Dùng làm input cho bước AI: lấy transcript có sẵn thay vì tự xây speech-to-text. Giả định #3 có bằng chứng một phần. |
+| **Microsoft 365 Copilot — hỗ trợ tiếng Việt** | [techcommunity.microsoft.com — More new languages in M365 Copilot](https://techcommunity.microsoft.com/blog/microsoft365copilotblog/more-new-languages-supported-in-microsoft-365-copilot/4274332) | Bước 2: tóm tắt transcript bằng công cụ AI trong tổ chức | 10/2024 Microsoft thêm 12 ngôn ngữ cho Copilot, trong đó có **Vietnamese** | Bài viết không nói rõ tính năng recap cuộc họp có hỗ trợ tiếng Việt không; cần license Copilot/Teams Premium | Nếu tổ chức đã có Copilot hoặc công cụ AI gói doanh nghiệp, pilot dùng công cụ đó (dữ liệu không ra ngoài) thay vì tự gọi API, đúng với hướng pilot ở mục 8.2. |
+
+**Kết luận research:** Công cụ có sẵn đã giải tốt bước tạo transcript, nhưng phần tóm tắt tự động cho họp tiếng Việt còn hạn chế (Google Meet chưa hỗ trợ), và chính nhà cung cấp cũng cảnh báo tóm tắt có thể sai. Vì vậy nhóm không tự xây công cụ mới. Hướng đi là Workflow bán thủ công: lấy transcript có sẵn, dùng công cụ AI mà tổ chức cho phép để tạo nháp theo template, rồi để người ghi chép kiểm tra trước khi gửi.
 
 ---
 
@@ -186,9 +187,9 @@ flowchart LR
     classDef humanStep fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#000
 ```
 
-- **RULE:** Template biên bản cố định (mục quyết định, mục action item gồm người và hạn)[cite: 6].
-- **BOUNDARY:** AI không tự gửi biên bản, không tự giao việc hay đặt deadline, không thêm quyết định không có trong buổi họp; chỉ dùng nội dung buổi họp đó[cite: 6]. Người luôn kiểm tra tên người phụ trách và deadline trước khi gửi[cite: 6].
-- **PHƯƠNG ÁN QUAY VỀ:** Bản nháp thiếu hoặc sai nhiều (transcript lỗi, thuật ngữ nội bộ) $\rightarrow$ Bỏ bản nháp, soạn theo template cũ từ ghi chú tay[cite: 6].
+- **RULE:** Template biên bản cố định (mục quyết định, mục action item gồm người và hạn).
+- **BOUNDARY:** AI không tự gửi biên bản, không tự giao việc hay đặt deadline, không thêm quyết định không có trong buổi họp; chỉ dùng nội dung buổi họp đó. Người luôn kiểm tra tên người phụ trách và deadline trước khi gửi.
+- **PHƯƠNG ÁN QUAY VỀ:** Bản nháp thiếu hoặc sai nhiều (transcript lỗi, thuật ngữ nội bộ) $\rightarrow$ Bỏ bản nháp, soạn theo template cũ từ ghi chú tay.
 
 ### 4.3. Before / after
 
