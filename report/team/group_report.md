@@ -35,10 +35,10 @@
 
 | Cluster | Các candidate | Pattern chung |
 |---|---|---|
-| A |Nhập 150 hồ sơ/tuần, nhập hóa đơn hằng tuần vào sổ, phân loại lỗi từ phản hồi khách hàng  |Đọc từng bản ghi thô (giấy, ảnh, văn bản) rồi gõ hoặc gắn nhãn lặp đi lặp lại |
-| B |Đối soát tiền cổng thanh toán, xử lý tiền chuyển khoản treo, hồ sơ thiếu thông tin bị bỏ sót, kiểm xuất 1 tháng giao dịch từ sổ viết tay |So hai nguồn (hoặc so với danh sách chuẩn) để tìm chỗ lệch, chỗ thiếu rồi dò nguyên nhân |
-| C |Ghi chép biên bản họp, tổng hợp nội dung sau cuộc họp, theo kịp group chat sau thời gian nghỉ |Gom nội dung dài, rời rạc rồi rút ra quyết định và việc cần làm cho người khác đọc |
-| D |Bị hỏi trạng thái và nghi thất lạc hồ sơ, trả lời sếp về tình hình tiền |Bị hỏi bất chợt, phải đi tìm ở nhiều chỗ mới trả lời được vì không có một nơi ghi trạng thái chung|
+| A — Nhập / phân loại dữ liệu thô |Nhập 150 hồ sơ/tuần, nhập hóa đơn hằng tuần vào sổ, phân loại lỗi từ phản hồi khách hàng  |Đọc từng bản ghi thô (giấy, ảnh, văn bản) rồi gõ hoặc gắn nhãn lặp đi lặp lại |
+| B — Đối soát / kiểm tra khớp |Đối soát tiền cổng thanh toán, xử lý tiền chuyển khoản treo, hồ sơ thiếu thông tin bị bỏ sót, kiểm xuất 1 tháng giao dịch từ sổ viết tay |So hai nguồn (hoặc so với danh sách chuẩn) để tìm chỗ lệch, chỗ thiếu rồi dò nguyên nhân |
+| C — Tổng hợp nội dung họp / chat |Ghi chép biên bản họp, tổng hợp nội dung sau cuộc họp, theo kịp group chat sau thời gian nghỉ |Gom nội dung dài, rời rạc rồi rút ra quyết định và việc cần làm cho người khác đọc |
+| D — Tra cứu trạng thái |Bị hỏi trạng thái và nghi thất lạc hồ sơ, trả lời sếp về tình hình tiền |Bị hỏi bất chợt, phải đi tìm ở nhiều chỗ mới trả lời được vì không có một nơi ghi trạng thái chung|
 
 ### 2.3. Opportunity Solution Tree rút gọn
 
