@@ -64,11 +64,11 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 
 **Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
 
-- Viết Cluster, cây OST, làm quy trình trước/sau và problem statement
+- Viết Cluster, cây OST, làm quy trình trước/sau 
 
 **Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
 
-- Phần 2.2; 2.3; 4; 5 trong báo cáo
+- Phần 2.2; 2.3; 4 trong báo cáo
 
 **Điều mình học được từ phần nhóm:**
 
