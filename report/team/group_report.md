@@ -293,31 +293,49 @@ Vì sao: AI cần hiểu transcript để tóm tắt và trích người phụ t
 
 | Rủi ro | Câu hỏi | Mức độ rủi ro (Thấp = an toàn / TB / Cao = nguy hiểm) | Lý do / bằng chứng |
 |---|---|---|---|
-| **Value** | Người dùng có thật sự cần và sẽ dùng không? | | |
-| **Usability** | Người dùng có dùng được, có hiểu và sửa được đầu ra của AI không? | | |
-| **Feasibility** | Có đủ dữ liệu, công cụ, kỹ năng để làm không? | | |
-| **Viability** | Có hợp chi phí, pháp lý, quy định tổ chức không? Ai vận hành? | | |
+| **Value** | Người dùng có thật sự cần và sẽ dùng không? | Thấp | Vấn đề tốn 45 phút gõ biên bản và sót việc xảy ra thực tế, lặp lại hàng tuần. Giảm thời gian xuống dưới 10 phút đem lại giá trị thấy rõ. |
+| **Usability** | Người dùng có dùng được, có hiểu và sửa được đầu ra của AI không? | Thấp | Output được yêu cầu sinh theo template biên bản quen thuộc, phân tách rõ Quyết định và Action Items. PM/Người ghi chép dễ dàng đối chiếu và sửa text. |
+| **Feasibility** | Có đủ dữ liệu, công cụ, kỹ năng để làm không? | Trung bình | Các công cụ họp (Google Meet/Teams) đã có sẵn tính năng Transcript tự động. Tuy nhiên, rủi ro nằm ở việc AI có bắt đúng các thuật ngữ kỹ thuật viết tắt hay tên người trong nội bộ không. |
+| **Viability** | Có hợp chi phí, pháp lý, quy định tổ chức không? Ai vận hành? | Trung bình | Cần phải xin phép ghi âm/transcript các cuộc họp có tính bảo mật nội bộ. Chi phí gọi API tóm tắt rất rẻ nhưng chính sách dữ liệu công ty có thể cấm đưa nội dung họp lên các LLM bên ngoài (như OpenAI/Anthropic) nếu không có gói Enterprise. |
 
 ### 8.2. Kết luận
 
-**Quyết định:** Go / Not Yet / No-Go
+**Quyết định:** Go (nhưng cần xác nhận Viability trước khi pilot)
 
-**Lý do:**
+**Lý do:** 
+Vấn đề giải quyết được pain-point thật sự với Value cao và quy trình Workflow an toàn (có người duyệt). Các rủi ro Feasibility (sai thuật ngữ) và Viability (bảo mật dữ liệu) có thể kiểm soát thông qua một thử nghiệm nhỏ.
 
 **Nếu Go — pilot nhỏ nhất:**
+- Thử nghiệm trong 4 tuần cho 1-2 buổi họp nội bộ hàng tuần của riêng team mình (không liên quan đến khách hàng hay đối tác ngoài).
+- Xin phép cả team trước khi bật record/transcript.
+- Copy phần transcript dán vào công cụ AI hiện có của công ty (nếu có, ví dụ Gemini Workspace hoặc ChatGPT gói Team) kèm theo prompt chuẩn để ép output vào template. 
+- Người ghi chép bấm giờ đo lại tổng thời gian và đánh dấu số lượng action item bị AI nhận diện sai.
 
-**Nếu Not Yet — cần kiểm chứng gì trước:**
+**Nếu Not Yet — cần kiểm chứng gì trước:** (Bỏ qua vì quyết định là Go)
 
-**Nếu No-Go — nên làm gì thay AI:**
+**Nếu No-Go — nên làm gì thay AI:** (Bỏ qua vì quyết định là Go)
 
-**Ngưỡng dừng** (nếu sau … mà … thì quay về …):
+**Ngưỡng dừng:** 
+- Nếu 2 tuần liên tiếp người ghi chép phải sửa lại trên 50% nội dung bản nháp do AI gán sai người phụ trách hoặc bỏ sót việc quan trọng $\rightarrow$ Quay về soạn tay theo template cũ từ ghi chú tay.
+- Nếu team không đồng ý cho ghi âm hoặc ban IT cấm đưa dữ liệu họp qua công cụ AI $\rightarrow$ Dừng pilot ngay lập tức, chuyển sang No AI (luân phiên thư ký và dùng template).
 
 ---
 
 ## 9. Hạn chế và hướng tiếp theo
 
--
+**Hạn chế:**
+- Các số liệu baseline hiện tại (thời gian 45 phút, tỷ lệ sót việc 20%) mới chỉ dựa trên ước lượng và phỏng vấn quy mô nhỏ, chưa được đo đạc bằng dữ liệu lịch sử dài hạn.
+- Chất lượng đầu vào (Input) phụ thuộc rất lớn vào công cụ Speech-to-Text. Với môi trường họp tiếng Việt có pha trộn nhiều từ vựng chuyên ngành (tiếng Anh) hoặc từ lóng, bản transcript có thể bị sai lệch, dẫn đến việc AI tóm tắt sai ngữ cảnh.
+- Rủi ro về Viability (chính sách bảo mật dữ liệu nội bộ) vẫn cần phải đợi xác nhận từ phía IT/Security trước khi có thể triển khai thực tế.
+
+**Hướng tiếp theo:**
+- Tiến hành đo đạc lại baseline thực tế trong 1-2 tuần đầu trước khi đưa công cụ AI vào sử dụng để có con số đối chiếu chính xác nhất.
+- Phát triển một bộ thư viện Prompt (Few-shot prompting) chứa sẵn các ví dụ về cách tóm tắt đúng và danh sách các thuật ngữ viết tắt của team để "dạy" AI nhận diện tốt hơn.
+- Nếu pilot thành công và tỷ lệ chính xác đạt > 95%, nhóm sẽ nghiên cứu tích hợp quy trình này thành một dạng bot nội bộ (ví dụ: gọi Slack API) để tự động hóa khâu kéo transcript và sinh nháp thẳng vào kênh chat của người duyệt.
 
 ## 10. Tài liệu tham khảo
 
--
+- Hướng dẫn Lab Day 02 - Discovery & Problem Framing (Khóa AI Foundation K5).
+- Khung đánh giá rủi ro sản phẩm (4 Big Risks: Value, Usability, Feasibility, Viability) - Marty Cagan.
+- Cẩm nang thiết kế AI (AI Guidebook) - Google PAIR (Đánh giá mức độ can thiệp Augment vs. Automate và Human-in-the-loop).
+- Phương pháp phỏng vấn tìm kiếm nhu cầu thật (The Mom Test) - Rob Fitzpatrick.
