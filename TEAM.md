@@ -13,7 +13,7 @@
 | STT | Họ và tên | MSSV | Vai trò trong nhóm | Tài khoản GitHub |
 |---:|---|---|---|---|
 | 1 | Phạm Hồng Khánh Huy | 2A202603588 | ghi chép, phụ trách research | https://github.com/khanhhuy1714-hue |
-| 2 | Bùi Nguyên Dũng |2A202603587 | |https://github.com/Nesto08 |
+| 2 | Bùi Nguyên Dũng |2A202603587 | hỗ trợ research, thực hiện một số phần việc |https://github.com/Nesto08 |
 | 3 |Đỗ Đức Duẩn |2A202603590 |vẽ quy trình, viết Problem Statement |https://github.com/Do-Duan |
 | 4 |Đậu Phúc Đức |2A202603580 | |https://github.com/dpduc313 |
 
@@ -60,7 +60,7 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 
 **Phần việc phụ trách:**
 
--
+- Hỗ trợ research, thực hiện một số phần của bài
 
 **Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
 
@@ -72,7 +72,7 @@ Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `
 
 **Điều mình học được từ phần nhóm:**
 
--
+- Nhận ra giá trị của phản biện nhóm để xác định rõ ranh giới (boundary), luôn giữ con người kiểm duyệt (Human-in-the-loop) thay vì tự động hóa hoàn toàn.
 
 ### DoDucDuan-2A202603590
 
