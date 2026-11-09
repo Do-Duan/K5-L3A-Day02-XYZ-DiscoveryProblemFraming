@@ -4,7 +4,7 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
+- Tên nhóm: XYZ
 - Candidate problem nhóm chọn (1 câu):
 - Quyết định cuối (Go / Not Yet / No-Go):
 
@@ -12,10 +12,10 @@
 
 | STT | Họ và tên | MSSV | Vai trò trong nhóm | Tài khoản GitHub |
 |---:|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-| 4 | | | | |
+| 1 | Phạm Hồng Khánh Huy | 2A202603588 |  | https://github.com/khanhhuy1714-hue |
+| 2 | Bùi Nguyên Dũng |2A202603587 | |https://github.com/Nesto08 |
+| 3 |Đỗ Đức Duẩn |2A202603590 | |https://github.com/Do-Duan |
+| 4 |Đậu Phúc Đức |2A202603580 | |https://github.com/dpduc313 |
 
 Không ghi email hay số điện thoại vào bảng này, vì repo có thể để public.
 
@@ -37,7 +37,62 @@ Gợi ý vai trò (một người có thể giữ nhiều vai): điều phối t
 
 Mỗi thành viên thêm một mục theo mẫu dưới đây, tiêu đề là `HoVaTen-MSSV`.
 
-### HoVaTen-MSSV
+
+### PhamHongKhanhHuy-2A202603588
+
+**Phần việc phụ trách:**
+
+- ghi chép, phụ trách research
+
+**Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
+
+- 
+
+**Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
+
+-
+
+**Điều mình học được từ phần nhóm:**
+
+-
+
+### BuiNguyenDung-2A202603587
+
+**Phần việc phụ trách:**
+
+-
+
+**Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
+
+-
+
+**Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
+
+-
+
+**Điều mình học được từ phần nhóm:**
+
+-
+
+### DoDucDuan-2A202603590
+
+**Phần việc phụ trách:**
+
+-
+
+**Đóng góp cụ thể** (mình đã làm gì, ra sản phẩm gì):
+
+-
+
+**Bằng chứng** (phần nào trong `group_report.md`, file nào trong `report/assets/`, commit nào):
+
+-
+
+**Điều mình học được từ phần nhóm:**
+
+-
+
+### DauPhucDuc-2A202603580
 
 **Phần việc phụ trách:**
 
