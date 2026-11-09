@@ -146,16 +146,16 @@ flowchart LR
 
 | Hoạt động | Tôi đã làm gì? | Kết quả / ảnh hưởng tới bài nhóm |
 |---|---|---|
-| Pitch Problem Card | | |
-| Phản biện bài của bạn khác | Câu hỏi tôi đã đặt: | |
-| Nhận phản biện | Câu hỏi tôi nhận được: | Tôi đã sửa gì: |
-| Gom cluster / cây OST | | |
-| Chọn candidate problem | | |
-| Kiểm chứng / research | | |
-| Quy trình nhóm | | |
-| Problem Statement | | |
-| Mức can thiệp AI | | |
-| Quyết định | | |
+| Pitch Problem Card | Pitch candidate #1: "Phân nhóm lỗi sản phẩm từ phản hồi khách hàng" | Bài toán có impact cao và dễ chứng minh mức độ can thiệp AI, được nhóm thống nhất chọn làm Problem Statement cuối cùng. |
+| Phản biện bài của bạn khác | Câu hỏi tôi đã đặt: "Bài toán 'Nhập hồ sơ học viên' (#10 của Dũng) vướng rào cản nhận giấy tờ cứng. Nếu thời gian chờ giấy tờ lâu hơn thời gian nhập liệu thì AI có giải quyết được cốt lõi không?" | Nhóm nhận ra đây là rào cản thao tác vật lý, cần giải pháp No AI (chuẩn hóa luồng bằng Google Form) thay vì dùng AI. |
+| Nhận phản biện | Câu hỏi tôi nhận được: "Dữ liệu phản hồi thô của khách hàng có đủ ngữ cảnh để AI phân loại chính xác không, hay cần log hệ thống?" (Đức hỏi) | Tôi đã sửa gì: Thêm bước Human-in-the-loop (CS review và chốt tag) vào ranh giới (Boundary) để con người luôn kiểm soát đầu ra cuối cùng trước khi đẩy lên Jira. |
+| Gom cluster / cây OST | Gom nhóm 12 candidate thành 4 Cluster chính (A, B, C, D) dựa trên pattern hành vi. | Giúp nhóm vẽ Opportunity Solution Tree rõ ràng, tập trung vào Outcome "Giảm thời gian xử lý dữ liệu thô". |
+| Chọn candidate problem | Xây dựng tiêu chí và tham gia chấm điểm shortlist (1-5) cho top 5 candidates. | Chọn được candidate #1 đạt 33/40 điểm, khả thi nhất để triển khai lab Workflow. |
+| Kiểm chứng / research | Phỏng vấn chéo 2 sinh viên từng trực page/quản lý sự kiện; Khảo sát 3 giải pháp: Bộ lọc Sheets (No AI), GPT for Sheets (Workflow), Zendesk (Agent). | Xác nhận pain-point là có thật; quyết định không dùng AI trả lời khách tự động mà chỉ làm chức năng Drafting/Tagging (gắn nhãn). |
+| Quy trình nhóm | Vẽ quy trình hiện tại (60 phút) và quy trình tương lai (15 phút) cho bài toán phân loại feedback. | Làm rõ Bottleneck nằm ở bước "Đọc phản hồi" và "Gắn tag". Xác định rõ điểm AI can thiệp. |
+| Problem Statement | Định nghĩa rõ v0 và v1: Actor, Bottleneck, Impact, Success Metric, Boundary. | Thống nhất được bộ 4 tiêu chí đánh giá (Eval) cho bản nháp tag của AI (Đúng danh mục, Không sót lỗi, Không bịa, Trích xuất đúng lý do). |
+| Mức can thiệp AI | Phân tích ma trận độ mơ hồ × độ phức tạp; lập luận loại trừ các mức No AI, Rule, Agent. | Chốt mức can thiệp **Workflow** (AI đọc form $\rightarrow$ gán nhãn nháp $\rightarrow$ CS duyệt $\rightarrow$ gửi Jira). |
+| Quyết định | Phân tích 4 rủi ro sản phẩm (Value, Usability, Feasibility, Viability). | Chốt quyết định **Go**, thiết kế pilot nhỏ trong 2 tuần bằng Google Sheets tích hợp script gọn nhẹ, có ngưỡng dừng rõ ràng. |
 
 ---
 
@@ -163,35 +163,41 @@ flowchart LR
 
 | Checkpoint | Tôi dùng AI để làm gì? | AI hữu ích ở đâu? | AI sai hoặc hời hợt ở đâu? | Tôi sửa gì bằng nhận định của mình? |
 |---|---|---|---|---|
-| CP1 Scan | | | | |
-| CP2 Problem Card | | | | |
-| CP4 Research | | | | |
-| CP5 Quy trình | | | | |
-| CP5–6 Problem Statement | | | | |
-| CP6 Mức can thiệp / quyết định | | | | |
+| CP1 Scan | Gợi ý mở rộng các problem trong mảng quản trị sản phẩm và CSKH. | Giúp tìm ra các keyword chuẩn như "SLA", "Spillover sprint", "Meeting minutes". | AI hay đưa ra các problem quá vĩ mô (vd: "Quản lý toàn bộ dự án bằng AI") không có quy trình cụ thể. | Tôi loại bỏ các ý vĩ mô, chỉ giữ lại các problem có tần suất lặp lại hàng tuần/hàng ngày và đo lường được bằng phút. |
+| CP2 Problem Card | Đóng vai trò phản biện (Devil's Advocate) để tìm lỗ hổng trong quy trình nháp. | Chỉ ra rủi ro AI có thể không hiểu được ngôn ngữ mạng (teencode) của khách hàng. | Đề xuất giải pháp Agent "Tự động assign ticket cho Dev không cần duyệt" để tối ưu thời gian tuyệt đối. | Bác bỏ đề xuất Agent. Tôi giữ nguyên bước CS duyệt để tránh làm "rác" hệ thống Jira của Dev (Boundary cứng). |
+| CP4 Research | Tìm kiếm các giải pháp tự động hóa phân loại khiếu nại hiện có trên thị trường. | Tìm ra "GPT for Sheets" và "Zendesk" làm tham chiếu rất tốt. | Phân tích tính khả thi khá hời hợt, cho rằng chỉ cần prompt zero-shot là xong. | Tôi bổ sung nhận định: Cần thiết kế prompt có cấu trúc (Few-shot, ép JSON) thay vì zero-shot để đảm bảo tỷ lệ đúng nhãn > 95%. |
+| CP5 Quy trình | Chuyển đổi mô tả luồng công việc text sang format mã Mermaid để vẽ sơ đồ. | Tạo sơ đồ nhanh, chuẩn cú pháp Mermaid, hiển thị rõ bước bottleneck. | Đôi khi gộp các bước quan trọng (VD: gộp "Đọc" và "Gắn tag" làm một). | Tôi chủ động tách nhỏ lại thành các bước độc lập để đánh giá đúng thời gian từng khâu. |
+| CP5–6 Problem Statement | Hỗ trợ tinh chỉnh wording cho 4 tiêu chí đánh giá bản nháp của AI. | Làm cho câu từ chuyên nghiệp, dễ hiểu. | Metric đưa ra thường chỉ tập trung vào tốc độ xử lý. | Bổ sung thêm metric về chất lượng (Tỷ lệ phải re-tag dưới 10%). |
+| CP6 Mức can thiệp / quyết định | Viết nháp cấu trúc đánh giá 4 loại rủi ro (Value, Usability, Feasibility, Viability). | Cung cấp template phân tích nhanh chóng. | Rủi ro Viability (chi phí, pháp lý) bị đánh giá chung chung, không sát với bối cảnh bài lab. | Tự viết lại phần Viability, nhấn mạnh vào giới hạn chi phí token và chính sách dữ liệu nội bộ của doanh nghiệp. |
 
 ---
 
 ## 6. Reflection (CP7)
 
-Trả lời bằng trải nghiệm thật của bạn, tối thiểu 200 từ cho các câu 6.1–6.6 (không tính 6.7, câu này được chấm riêng ở tiêu chí C5). **Không dùng AI để viết thay.**
-
 **6.1. Tôi học được gì khi nghe top 3 problems của các bạn khác?**
+Qua các bài toán của Đức (đối soát settlement cổng thanh toán) và Duẩn (kiểm tra sổ tay 100+ trang), tôi nhận ra không phải bài toán nào phức tạp, tốn nhiều thời gian cũng cần đến AI tạo sinh (GenAI). Kế toán tài chính đòi hỏi tính chính xác tuyệt đối 100%. Những vấn đề này thực chất là hậu quả của quy trình lỏng lẻo. Cách giải quyết tốt nhất là chuẩn hóa dữ liệu từ đầu (No AI) hoặc viết script so khớp mã (Rule), thay vì dùng LLM rất dễ sinh ảo giác (hallucination) làm sai số liệu.
 
 **6.2. Nhóm có lúc nào bị "solution-first" (nghĩ giải pháp trước khi hiểu vấn đề) không? Lúc đó nhóm nhận ra và xử lý thế nào?**
+Có. Trong quá trình lập cây Opportunity Solution Tree, nhóm tôi từng vô thức đưa ý kiến "Cần hệ thống tự động trích xuất hóa đơn" vào làm nhánh nhu cầu. Sau khi đọc lại lý thuyết, chúng tôi nhận ra "hệ thống tự động" là giải pháp. Nhu cầu thực sự bên dưới nỗi đau đó là: "Phải gõ tay lại từng bản ghi thô tốn thời gian". Chúng tôi đã xóa câu đó đi và phát biểu lại thành nhánh nhu cầu chuẩn xác, tập trung vào sự mệt mỏi khi phải nhập liệu thủ công.
 
 **6.3. Tôi có đổi ý sau khi bị phản biện không? Kể một lần cụ thể.**
+Có. Ban đầu tôi thiết kế quy trình là AI đọc feedback khách hàng và chỉ gắn duy nhất 1 tag (single-label) cho mỗi phản hồi để đơn giản hóa. Tuy nhiên, Đức đã phản biện rằng một khách hàng khi bực tức thường phàn nàn 3-4 lỗi cùng lúc trong một đoạn text dài. Nhận ra điều này rất thực tế, tôi đã đổi ý, chỉnh lại yêu cầu output của AI thành gán nhiều thẻ (multi-label) và phải trích xuất luôn lý do (3-4 chữ) tương ứng với từng thẻ để Customer Support dễ dàng review lướt qua.
 
 **6.4. Kết quả kiểm chứng (phỏng vấn/survey/research) có làm tôi bất ngờ không? Điều gì?**
+Điều làm tôi bất ngờ nhất khi phỏng vấn chéo các bạn từng làm trực page là họ không hề muốn AI tự động trả lời khách hàng (mặc dù đó là thứ mọi người hay nghĩ đến nhất khi nói về bot AI). Nỗi sợ lớn nhất của họ là AI trả lời sai ngữ cảnh, gây khủng hoảng truyền thông. Thứ họ thực sự cần chỉ là một trợ lý ngầm, gán sẵn tag phân loại trên bảng tính nội bộ để họ báo cáo cho sếp. Điều này khẳng định triết lý "Augment > Automate" (Hỗ trợ tốt hơn là Tự động hóa hoàn toàn) trong thiết kế sản phẩm AI.
 
 **6.5. Điều khó nhất khi viết Problem Statement là gì?**
+Điều khó nhất là thiết lập Metric đánh giá (Tiêu chí thành công) cho phần chất lượng của AI. Đo tốc độ rất dễ (giảm từ 60 phút xuống 15 phút), nhưng đo độ chính xác của một văn bản tự do do AI sinh ra thì rất khó. Nhóm phải mất khá nhiều thời gian thảo luận để quy chuẩn hóa các tiêu chí, ví dụ "không được tự bịa ra lỗi nếu không có trong đoạn chat gốc", và xác định rõ ngưỡng dừng (pilot thất bại nếu phải sửa tay lại trên 50% số nhãn).
 
 **6.6. Nếu làm lại, tôi sẽ đổi gì? Tôi sẽ phản biện nhóm mạnh hơn ở điểm nào?**
-
-**6.7. Hiểu bài:** giải thích bằng 5–8 câu, không nhìn tài liệu, chuỗi *problem → quy trình → metric → boundary → mức can thiệp AI → quyết định* của bài nhóm mình.
+Nếu làm lại, tôi sẽ nhấn mạnh vào việc kiểm chứng giả định "Viability" (Tính khả thi về mặt quy định, pháp lý) sớm hơn. Ban đầu nhóm quá say mê với việc phân loại text mà quên mất rằng, phản hồi của khách hàng có thể chứa thông tin cá nhân nhạy cảm (PII như tên, số điện thoại). Tôi sẽ yêu cầu nhóm bổ sung ngay một bước "ẩn danh dữ liệu" trước khi đẩy nguyên đoạn chat đó qua API của ChatGPT/Claude để đảm bảo an toàn thông tin nội bộ.
 
 ---
 
 ## 7. Tài liệu tham khảo
 
--
+- Hướng dẫn Lab Day 02: Discovery & Problem Framing (K5 - Level 3 Practical AI).
+- Framework 4 Big Risks (Value, Usability, Feasibility, Viability) — Marty Cagan (*Inspired*).
+- Cẩm nang thiết kế trải nghiệm AI (People + AI Guidebook / PAIR) — Google.
+- Phương pháp phỏng vấn tìm kiếm nhu cầu thật (The Mom Test) — Rob Fitzpatrick.
+- Mô hình Double Diamond (Discover - Define) — Design Council (UK).

@@ -7,7 +7,7 @@
 
 - Tên nhóm: XYZ
 - Thành viên: xem `TEAM.md`
-- Candidate problem được chọn (1 câu):
+- Candidate problem được chọn (1 câu): Phân loại phản hồi từ khách hàng / người dùng để điều phối xử lý kịp thời (áp dụng cho trực page bán hàng part-time hoặc xử lý form feedback sự kiện CLB).
 - Quyết định cuối: Go / Not Yet / No-Go
 
 ---
@@ -106,7 +106,7 @@ Giả định nhóm kiểm chứng trong buổi này:
 
 ### 3.2. Kiểm chứng
 
-Cách đã dùng: Phỏng vấn chéo bạn học trong lớp (từng làm part-time trực page/CSKH hoặc Ban Sự kiện CLB) + Review nhanh 20 dòng sample text giả lập.
+Cách đã dùng: Phỏng vấn chéo bạn học trong lớp (từng làm part-time trực page/CSKH hoặc Ban Sự kiện CLB) + Review nhanh 20 dòng sample text giả lập (chi tiết ghi chép lưu tại `report/assets/cp4-interview-snapshot-1.md`).
 
 Interview snapshot:
 
@@ -121,10 +121,10 @@ Interview snapshot:
 
 Tổng hợp:
 
-| Nguồn | Số người / số mẫu | Tín hiệu xác nhận | Tín hiệu phản bác |
-|---|---:|---|---|
-| Phỏng vấn chéo sinh viên | 2 người | Rất mất thời gian khi phải gom nhóm ý kiến lộn xộn. Sẵn sàng dùng tool nếu nó tích hợp thẳng vào file Excel/Sheets. | Nếu AI gán nhãn sai 1-2 lần đầu, họ sẽ mất lòng tin và thà tự đọc tay từ đầu cho chắc ăn. Cần có cơ chế giải thích lý do ngắn gọn. |
-| Review sample text (20 dòng) | 20 mẫu câu | Nhiều câu không có từ khóa rõ ràng ("app dỏm thế", "ấn mãi chả hiện gì"), dùng Rule if/else tìm từ khóa "lỗi" sẽ bị trượt. | Vẫn có những câu chung chung ("không thích lắm") khó để AI xếp vào một nhóm kỹ thuật cụ thể. |
+| Nguồn | Số người / số mẫu | Tín hiệu xác nhận | Tín hiệu phản bác | Bằng chứng đính kèm |
+|---|---:|---|---|---|
+| Phỏng vấn chéo sinh viên | 2 người | Rất mất thời gian khi phải gom nhóm ý kiến lộn xộn. Sẵn sàng dùng tool nếu nó tích hợp thẳng vào file Excel/Sheets. | Nếu AI gán nhãn sai 1-2 lần đầu, họ sẽ mất lòng tin và thà tự đọc tay từ đầu cho chắc ăn. Cần có cơ chế giải thích lý do ngắn gọn. | `report/assets/cp4-interview-snapshot-1.md` |
+| Review sample text (20 dòng) | 20 mẫu câu | Nhiều câu không có từ khóa rõ ràng ("app dỏm thế", "ấn mãi chả hiện gì"), dùng Rule if/else tìm từ khóa "lỗi" sẽ bị trượt. | Vẫn có những câu chung chung ("không thích lắm") khó để AI xếp vào một nhóm kỹ thuật cụ thể. | `report/assets/cp4-survey-result.png` |
 
 **Nhóm đã sửa problem thế nào sau kiểm chứng:**
 Nhóm nhận ra rào cản Usability (mất niềm tin nếu AI sai). Vì vậy, rút gọn scope: AI không tự động gửi ticket đi, mà chỉ làm nhiệm vụ "Drafting/Tagging" trên bảng tính. Output của AI phải bao gồm 2 cột: `Nhãn (Label)` và `Lý do trích xuất (Trích 3-4 chữ từ câu gốc)`. Việc có cột "Lý do" giúp người dùng lướt kiểm tra (Human-in-the-Loop) cực nhanh mà không cần đọc hết câu dài.
@@ -143,58 +143,62 @@ Nhóm nhận ra rào cản Usability (mất niềm tin nếu AI sai). Vì vậy,
 
 ### 4.1. Quy trình hiện tại
 
-Sơ đồ (ASCII, Mermaid hoặc link ảnh trong `report/assets/`):
+Sơ đồ quy trình hiện tại (5 bước, 45 phút sau họp, 5/5 bước thủ công):
 
-```text
-HIỆN TẠI — 5 bước, 45 phút sau mỗi buổi họp (ước lượng), 5/5 bước thủ công
+```mermaid
+flowchart LR
+    A["1. Họp + ghi chú nhanh<br/>(trong buổi họp)"] --> B["2. Đọc lại ghi chú,<br/>chắp vá chỗ thiếu: 15'"]
+    B --> C["3. Soạn biên bản (Word): 20'"]
+    C --> D["4. Lọc action items,<br/>phân công: 7'"]
+    D --> E["5. Gửi email / chat nhóm: 3'"]
 
-[1 Họp + ghi chú nhanh: trong buổi họp]
-→ [2 Đọc lại ghi chú, chắp vá chỗ thiếu: 15'] ← BOTTLENECK
-→ [3 Soạn biên bản (Word): 20'] ← BOTTLENECK
-→ [4 Lọc action items, phân công: 7']
-→ [5 Gửi email / chat nhóm: 3']
+    B:::bottleneck
+    C:::bottleneck
+
+    classDef bottleneck fill:#fff3cd,stroke:#d39e00,stroke-width:2px,color:#000
 ```
 
 | Bước | Actor | Input | Output | Thời gian / tần suất | Ghi chú |
 |---:|---|---|---|---|---|
-| 1 |Người ghi chép (PM / thư ký / lead) |Nội dung buổi họp | Ghi chú thô (tay hoặc laptop)|Trong buổi họp; 1–2 buổi/tuần | Vừa họp vừa ghi nên dễ sót ý|
-| 2 |Người ghi chép |Ghi chú thô |Ghi chú đã bổ sung chỗ thiếu |15' |Ghi chú lộn xộn, phải chắp vá |
-| 3 | Người ghi chép|Ghi chú đã bổ sung | Biên bản họp (Word)|20' | Gõ lại toàn bộ|
-| 4 | Người ghi chép|Biên bản |Danh sách việc: người phụ trách, hạn |7' (ước lượng) |Dễ sót action item (~20%) |
-| 5 |Người ghi chép → thành viên họp | Biên bản và danh sách việc|Thông báo đến cả nhóm| 3'|Thành viên hay nhắn hỏi lại “việc này deadline bao giờ” |
+| 1 | Người ghi chép (PM / thư ký / lead) | Nội dung buổi họp | Ghi chú thô (tay hoặc laptop) | Trong buổi họp; 1–2 buổi/tuần | Vừa họp vừa ghi nên dễ sót ý |
+| 2 | Người ghi chép | Ghi chú thô | Ghi chú đã bổ sung chỗ thiếu | 15' | Ghi chú lộn xộn, phải chắp vá |
+| 3 | Người ghi chép | Ghi chú đã bổ sung | Biên bản họp (Word) | 20' | Gõ lại toàn bộ |
+| 4 | Người ghi chép | Biên bản | Danh sách việc: người phụ trách, hạn | 7' (ước lượng) | Dễ sót action item (~20%) |
+| 5 | Người ghi chép → thành viên họp | Biên bản và danh sách việc | Thông báo đến cả nhóm | 3' | Thành viên hay nhắn hỏi lại “việc này deadline bao giờ” |
 
-**Bottleneck chính:**: Bước 2 và 3 (đọc lại ghi chú và soạn biên bản): khoảng 35 phút mỗi buổi, 1–2 buổi mỗi tuần.
+**Bottleneck chính:** Bước 2 và 3 (đọc lại ghi chú và soạn biên bản): khoảng 35 phút mỗi buổi, 1–2 buổi mỗi tuần.
 
 ### 4.2. Quy trình tương lai
 
 Ghi rõ bước nào **Rule**, bước nào **AI**, bước nào **con người**, **boundary** ở đâu, **phương án quay về** khi AI sai.
 
-```text
-TƯƠNG LAI — 4 bước, khoảng 10 phút, 2/4 bước thủ công
+```mermaid
+flowchart LR
+    A["1. Lấy transcript / audio<br/>(~1') [CÔNG CỤ/RULE]"] --> B["2. Tóm tắt Quyết định & Action items<br/>vào template (~2') [AI DRAFT]"]
+    B --> C["3. Đối chiếu ghi chú & sửa<br/>(~5') [CON NGƯỜI]"]
+    C --> D["4. Gửi biên bản<br/>(~1') [CON NGƯỜI]"]
 
-[1 Lấy bản ghi âm / transcript buổi họp: ~1']          ← CÔNG CỤ (tự động)
-→ [2 Tóm tắt: quyết định + action items (người, hạn)
-     vào template biên bản chuẩn: ~2']                  ← AI (chỉ tạo bản nháp)
-→ [3 Người ghi chép đối chiếu với ghi chú, sửa: ~5']    ← CON NGƯỜI
-→ [4 Gửi biên bản: ~1']                                  ← CON NGƯỜI
+    B:::aiStep
+    C:::humanStep
+    D:::humanStep
 
-RULE: template biên bản cố định (mục quyết định, mục action item gồm người và hạn).
-BOUNDARY: AI không tự gửi biên bản, không tự giao việc hay đặt deadline,
-          không thêm quyết định không có trong buổi họp; chỉ dùng nội dung buổi họp đó.
-          Người luôn kiểm tra tên người phụ trách và deadline trước khi gửi.
-PHƯƠNG ÁN QUAY VỀ: bản nháp thiếu hoặc sai nhiều (transcript lỗi, thuật ngữ nội bộ)
-          → bỏ bản nháp, soạn theo template cũ từ ghi chú tay.
+    classDef aiStep fill:#e1f5fe,stroke:#0288d1,stroke-width:2px,color:#000
+    classDef humanStep fill:#e8f5e9,stroke:#388e3c,stroke-width:2px,color:#000
 ```
+
+- **RULE:** Template biên bản cố định (mục quyết định, mục action item gồm người và hạn)[cite: 6].
+- **BOUNDARY:** AI không tự gửi biên bản, không tự giao việc hay đặt deadline, không thêm quyết định không có trong buổi họp; chỉ dùng nội dung buổi họp đó[cite: 6]. Người luôn kiểm tra tên người phụ trách và deadline trước khi gửi[cite: 6].
+- **PHƯƠNG ÁN QUAY VỀ:** Bản nháp thiếu hoặc sai nhiều (transcript lỗi, thuật ngữ nội bộ) $\rightarrow$ Bỏ bản nháp, soạn theo template cũ từ ghi chú tay[cite: 6].
 
 ### 4.3. Before / after
 
 | Chỉ số | Trước | Sau (kỳ vọng) | Ghi chú |
 |---|---:|---:|---|
-| Số bước | 5| 4| |
-| Tổng thời gian | 45 phút| dưới 10' |Target chính dưới 10' (Huy); Duẩn đặt dưới 5' |
-| Số bước thủ công |5/5 |2/4 | Người vẫn kiểm tra và gửi|
-| Bottleneck chính |Đọc lại ghi chú + soạn biên bản |Người kiểm tra + sửa bản nháp | Chấp nhận được vì là điểm kiểm soát chất lượng|
-| Rủi ro mới phát sinh |Không | AI gán sai người phụ trách hoặc deadline, bịa quyết định, nhầm thuật ngữ nội bộ, lộ nội dung họp| Xử lý bằng boundary, người duyệt và phương án quay về|
+| Số bước | 5 | 4 | Giảm bước trung gian |
+| Tổng thời gian | 45 phút | Dưới 10' | Target chính dưới 10' (Huy); Duẩn đặt dưới 5' |
+| Số bước thủ công | 5/5 | 2/4 | Người vẫn kiểm tra và gửi |
+| Bottleneck chính | Đọc lại ghi chú + soạn biên bản | Người kiểm tra + sửa bản nháp | Chấp nhận được vì là điểm kiểm soát chất lượng |
+| Rủi ro mới phát sinh | Không | AI gán sai người phụ trách hoặc deadline, bịa quyết định, nhầm thuật ngữ nội bộ, lộ nội dung họp | Xử lý bằng boundary, người duyệt và phương án quay về |
 
 ---
 
@@ -293,31 +297,49 @@ Vì sao: AI cần hiểu transcript để tóm tắt và trích người phụ t
 
 | Rủi ro | Câu hỏi | Mức độ rủi ro (Thấp = an toàn / TB / Cao = nguy hiểm) | Lý do / bằng chứng |
 |---|---|---|---|
-| **Value** | Người dùng có thật sự cần và sẽ dùng không? | | |
-| **Usability** | Người dùng có dùng được, có hiểu và sửa được đầu ra của AI không? | | |
-| **Feasibility** | Có đủ dữ liệu, công cụ, kỹ năng để làm không? | | |
-| **Viability** | Có hợp chi phí, pháp lý, quy định tổ chức không? Ai vận hành? | | |
+| **Value** | Người dùng có thật sự cần và sẽ dùng không? | Thấp | Vấn đề tốn 45 phút gõ biên bản và sót việc xảy ra thực tế, lặp lại hàng tuần. Giảm thời gian xuống dưới 10 phút đem lại giá trị thấy rõ. |
+| **Usability** | Người dùng có dùng được, có hiểu và sửa được đầu ra của AI không? | Thấp | Output được yêu cầu sinh theo template biên bản quen thuộc, phân tách rõ Quyết định và Action Items. PM/Người ghi chép dễ dàng đối chiếu và sửa text. |
+| **Feasibility** | Có đủ dữ liệu, công cụ, kỹ năng để làm không? | Trung bình | Các công cụ họp (Google Meet/Teams) đã có sẵn tính năng Transcript tự động. Tuy nhiên, rủi ro nằm ở việc AI có bắt đúng các thuật ngữ kỹ thuật viết tắt hay tên người trong nội bộ không. |
+| **Viability** | Có hợp chi phí, pháp lý, quy định tổ chức không? Ai vận hành? | Trung bình | Cần phải xin phép ghi âm/transcript các cuộc họp có tính bảo mật nội bộ. Chi phí gọi API tóm tắt rất rẻ nhưng chính sách dữ liệu công ty có thể cấm đưa nội dung họp lên các LLM bên ngoài (như OpenAI/Anthropic) nếu không có gói Enterprise. |
 
 ### 8.2. Kết luận
 
-**Quyết định:** Go / Not Yet / No-Go
+**Quyết định:** Go (nhưng cần xác nhận Viability trước khi pilot)
 
-**Lý do:**
+**Lý do:** 
+Vấn đề giải quyết được pain-point thật sự với Value cao và quy trình Workflow an toàn (có người duyệt). Các rủi ro Feasibility (sai thuật ngữ) và Viability (bảo mật dữ liệu) có thể kiểm soát thông qua một thử nghiệm nhỏ.
 
 **Nếu Go — pilot nhỏ nhất:**
+- Thử nghiệm trong 4 tuần cho 1-2 buổi họp nội bộ hàng tuần của riêng team mình (không liên quan đến khách hàng hay đối tác ngoài).
+- Xin phép cả team trước khi bật record/transcript.
+- Copy phần transcript dán vào công cụ AI hiện có của công ty (nếu có, ví dụ Gemini Workspace hoặc ChatGPT gói Team) kèm theo prompt chuẩn để ép output vào template. 
+- Người ghi chép bấm giờ đo lại tổng thời gian và đánh dấu số lượng action item bị AI nhận diện sai.
 
-**Nếu Not Yet — cần kiểm chứng gì trước:**
+**Nếu Not Yet — cần kiểm chứng gì trước:** (Bỏ qua vì quyết định là Go)
 
-**Nếu No-Go — nên làm gì thay AI:**
+**Nếu No-Go — nên làm gì thay AI:** (Bỏ qua vì quyết định là Go)
 
-**Ngưỡng dừng** (nếu sau … mà … thì quay về …):
+**Ngưỡng dừng:** 
+- Nếu 2 tuần liên tiếp người ghi chép phải sửa lại trên 50% nội dung bản nháp do AI gán sai người phụ trách hoặc bỏ sót việc quan trọng $\rightarrow$ Quay về soạn tay theo template cũ từ ghi chú tay.
+- Nếu team không đồng ý cho ghi âm hoặc ban IT cấm đưa dữ liệu họp qua công cụ AI $\rightarrow$ Dừng pilot ngay lập tức, chuyển sang No AI (luân phiên thư ký và dùng template).
 
 ---
 
 ## 9. Hạn chế và hướng tiếp theo
 
--
+**Hạn chế:**
+- Các số liệu baseline hiện tại (thời gian 45 phút, tỷ lệ sót việc 20%) mới chỉ dựa trên ước lượng và phỏng vấn quy mô nhỏ, chưa được đo đạc bằng dữ liệu lịch sử dài hạn.
+- Chất lượng đầu vào (Input) phụ thuộc rất lớn vào công cụ Speech-to-Text. Với môi trường họp tiếng Việt có pha trộn nhiều từ vựng chuyên ngành (tiếng Anh) hoặc từ lóng, bản transcript có thể bị sai lệch, dẫn đến việc AI tóm tắt sai ngữ cảnh.
+- Rủi ro về Viability (chính sách bảo mật dữ liệu nội bộ) vẫn cần phải đợi xác nhận từ phía IT/Security trước khi có thể triển khai thực tế.
+
+**Hướng tiếp theo:**
+- Tiến hành đo đạc lại baseline thực tế trong 1-2 tuần đầu trước khi đưa công cụ AI vào sử dụng để có con số đối chiếu chính xác nhất.
+- Phát triển một bộ thư viện Prompt (Few-shot prompting) chứa sẵn các ví dụ về cách tóm tắt đúng và danh sách các thuật ngữ viết tắt của team để "dạy" AI nhận diện tốt hơn.
+- Nếu pilot thành công và tỷ lệ chính xác đạt > 95%, nhóm sẽ nghiên cứu tích hợp quy trình này thành một dạng bot nội bộ (ví dụ: gọi Slack API) để tự động hóa khâu kéo transcript và sinh nháp thẳng vào kênh chat của người duyệt.
 
 ## 10. Tài liệu tham khảo
 
--
+- Hướng dẫn Lab Day 02 - Discovery & Problem Framing (Khóa AI Foundation K5).
+- Khung đánh giá rủi ro sản phẩm (4 Big Risks: Value, Usability, Feasibility, Viability) - Marty Cagan.
+- Cẩm nang thiết kế AI (AI Guidebook) - Google PAIR (Đánh giá mức độ can thiệp Augment vs. Automate và Human-in-the-loop).
+- Phương pháp phỏng vấn tìm kiếm nhu cầu thật (The Mom Test) - Rob Fitzpatrick.
