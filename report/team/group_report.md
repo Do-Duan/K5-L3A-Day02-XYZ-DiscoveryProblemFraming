@@ -146,36 +146,55 @@ Nhóm nhận ra rào cản Usability (mất niềm tin nếu AI sai). Vì vậy,
 Sơ đồ (ASCII, Mermaid hoặc link ảnh trong `report/assets/`):
 
 ```text
+HIỆN TẠI — 5 bước, 45 phút sau mỗi buổi họp (ước lượng), 5/5 bước thủ công
 
+[1 Họp + ghi chú nhanh: trong buổi họp]
+→ [2 Đọc lại ghi chú, chắp vá chỗ thiếu: 15'] ← BOTTLENECK
+→ [3 Soạn biên bản (Word): 20'] ← BOTTLENECK
+→ [4 Lọc action items, phân công: 7']
+→ [5 Gửi email / chat nhóm: 3']
 ```
 
 | Bước | Actor | Input | Output | Thời gian / tần suất | Ghi chú |
 |---:|---|---|---|---|---|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
+| 1 |Người ghi chép (PM / thư ký / lead) |Nội dung buổi họp | Ghi chú thô (tay hoặc laptop)|Trong buổi họp; 1–2 buổi/tuần | Vừa họp vừa ghi nên dễ sót ý|
+| 2 |Người ghi chép |Ghi chú thô |Ghi chú đã bổ sung chỗ thiếu |15' |Ghi chú lộn xộn, phải chắp vá |
+| 3 | Người ghi chép|Ghi chú đã bổ sung | Biên bản họp (Word)|20' | Gõ lại toàn bộ|
+| 4 | Người ghi chép|Biên bản |Danh sách việc: người phụ trách, hạn |7' (ước lượng) |Dễ sót action item (~20%) |
+| 5 |Người ghi chép → thành viên họp | Biên bản và danh sách việc|Thông báo đến cả nhóm| 3'|Thành viên hay nhắn hỏi lại “việc này deadline bao giờ” |
 
-**Bottleneck chính:**
+**Bottleneck chính:**: Bước 2 và 3 (đọc lại ghi chú và soạn biên bản): khoảng 35 phút mỗi buổi, 1–2 buổi mỗi tuần.
 
 ### 4.2. Quy trình tương lai
 
 Ghi rõ bước nào **Rule**, bước nào **AI**, bước nào **con người**, **boundary** ở đâu, **phương án quay về** khi AI sai.
 
 ```text
+TƯƠNG LAI — 4 bước, khoảng 10 phút, 2/4 bước thủ công
 
+[1 Lấy bản ghi âm / transcript buổi họp: ~1']          ← CÔNG CỤ (tự động)
+→ [2 Tóm tắt: quyết định + action items (người, hạn)
+     vào template biên bản chuẩn: ~2']                  ← AI (chỉ tạo bản nháp)
+→ [3 Người ghi chép đối chiếu với ghi chú, sửa: ~5']    ← CON NGƯỜI
+→ [4 Gửi biên bản: ~1']                                  ← CON NGƯỜI
+
+RULE: template biên bản cố định (mục quyết định, mục action item gồm người và hạn).
+BOUNDARY: AI không tự gửi biên bản, không tự giao việc hay đặt deadline,
+          không thêm quyết định không có trong buổi họp; chỉ dùng nội dung buổi họp đó.
+          Người luôn kiểm tra tên người phụ trách và deadline trước khi gửi.
+PHƯƠNG ÁN QUAY VỀ: bản nháp thiếu hoặc sai nhiều (transcript lỗi, thuật ngữ nội bộ)
+          → bỏ bản nháp, soạn theo template cũ từ ghi chú tay.
 ```
 
 ### 4.3. Before / after
 
 | Chỉ số | Trước | Sau (kỳ vọng) | Ghi chú |
 |---|---:|---:|---|
-| Số bước | | | |
-| Tổng thời gian | | | |
-| Số bước thủ công | | | |
-| Bottleneck chính | | | |
-| Rủi ro mới phát sinh | | | |
+| Số bước | 5| 4| |
+| Tổng thời gian | 45 phút| dưới 10' |Target chính dưới 10' (Huy); Duẩn đặt dưới 5' |
+| Số bước thủ công |5/5 |2/4 | Người vẫn kiểm tra và gửi|
+| Bottleneck chính |Đọc lại ghi chú + soạn biên bản |Người kiểm tra + sửa bản nháp | Chấp nhận được vì là điểm kiểm soát chất lượng|
+| Rủi ro mới phát sinh |Không | AI gán sai người phụ trách hoặc deadline, bịa quyết định, nhầm thuật ngữ nội bộ, lộ nội dung họp| Xử lý bằng boundary, người duyệt và phương án quay về|
 
 ---
 
@@ -183,16 +202,16 @@ Ghi rõ bước nào **Rule**, bước nào **AI**, bước nào **con người*
 
 | Trường | Nội dung |
 |---|---|
-| **Actor** | |
-| **Quy trình** | |
-| **Bottleneck** | |
-| **Impact** | |
-| **Success Metric** (baseline → target, cách đo) | |
-| **Boundary** (AI không được làm gì; khi nào cần con người kiểm tra — HITL) | |
+| **Actor** |Người ghi chép biên bản (PM / thư ký / lead) cho các thành viên tham gia họp |
+| **Quy trình** |Sau mỗi buổi họp: đọc lại ghi chú, soạn biên bản, lọc action items, gửi nhóm|
+| **Bottleneck** |Đọc lại ghi chú và soạn biên bản mất khoảng 35 phút, vì vừa họp vừa ghi nên dễ sót ý |
+| **Impact** |45 phút/buổi, 1–2 buổi/tuần; thành viên nhắn hỏi lại deadline, dễ quên việc được giao |
+| **Success Metric** (baseline → target, cách đo) |Thời gian 45' → dưới 10'/buổi; sót action item 20% → dưới 2%. Đo bằng cách bấm giờ 5 buổi gần nhất, rồi 4 tuần pilot, đối chiếu với danh sách chốt cuối |
+| **Boundary** (AI không được làm gì; khi nào cần con người kiểm tra — HITL) | AI chỉ tạo bản nháp, không tự gửi, không tự giao việc, không bịa quyết định. Người luôn kiểm tra người phụ trách và deadline trước khi gửi|
 
 Phản biện nhận được (từ AI hoặc nhóm khác) và nhóm có đồng ý không:
 
--
+- AI chỉ ra metric chỉ đo tốc độ và tỉ lệ sót việc, chưa đo độ đúng của nội dung (gán sai người phụ trách hoặc deadline), và baseline 45' / 20% mới là ước lượng. Nhóm đồng ý, thêm metric chất lượng ở v1 và ghi rõ baseline là ước lượng sẽ đo lại. Boundary được bổ sung điều kiện xin phép khi ghi âm.
 
 ---
 
