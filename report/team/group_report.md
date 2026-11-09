@@ -45,15 +45,22 @@
 Gốc là **1 outcome**. Nhánh là **opportunity** (nhu cầu, pain), không phải tính năng hay công cụ.
 
 ```text
-OUTCOME: 
-├── Opportunity A: 
-├── Opportunity B: 
-└── Opportunity C: 
+OUTCOME: Giảm thời gian nhân viên văn phòng mất cho việc xử lý thủ công dữ liệu thô (hiện khoảng 25–120 phút mỗi lần/đợt) mà không tăng sai sót
+├── Opportunity A: Phải đọc rồi gõ hoặc gắn nhãn lại từng bản ghi thô (hồ sơ, hóa đơn, phản hồi) nên tốn thời gian và dễ nhập sai
+├── Opportunity B:Khó phát hiện sớm chỗ lệch hoặc thiếu giữa các nguồn (giao dịch, hồ sơ, sổ sách) nên mất nhiều công dò nguyên nhân
+├── Opportunity C: Khó rút ra quyết định và việc cần làm từ nội dung dài, rời rạc (họp, chat) nên dễ sót việc, dễ hiểu nhầm
+└── Opportunity D: Phải đi tìm ở nhiều nơi mới trả lời được câu hỏi về trạng thái hoặc số hiện tại nên trả lời chậm, việc đang làm bị ngắt quãng
 ```
 
 Những ý đã gạch bỏ vì là solution đội lốt opportunity:
 
--
+- “Cần hệ thống tự động phân loại và trích xuất dữ liệu từ hóa đơn”. Đây là cách giải. Nhu cầu thật nằm ở Opportunity A: phải gõ lại từng hóa đơn.
+- “Cần AI Speech-to-Text ghi âm và tóm tắt cuộc họp” . Nhu cầu thật là Opportunity C: dễ sót action item sau họp.
+- “Cần chatbot hoặc hỏi bằng câu tự nhiên để biết hồ sơ/tiền đang ở đâu” . Nhu cầu thật là Opportunity D: không có một nơi ghi trạng thái chung.
+- “Cần dashboard dòng tiền hoặc bảng theo dõi trạng thái” . Đây cũng là một cách giải, còn nhu cầu thật vẫn là Opportunity D.
+- “Số hóa sổ viết tay sang Excel hoặc phần mềm kế toán” . Nhu cầu thật là Opportunity B: dò số liệu thủ công qua hơn 100 trang.
+- “Tự động tạo ticket Jira và assign cho Dev”. Đây là cách xử lý, không phải nhu cầu của người dùng.
+
 
 ### 2.4. Chấm điểm shortlist (1–5)
 
