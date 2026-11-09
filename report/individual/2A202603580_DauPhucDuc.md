@@ -59,7 +59,7 @@ Bối cảnh: Chị Mai làm kế toán, chị thường xuyên phải thực hi
 | Rank | Problem | Vì sao chọn | Điều còn chưa chắc |
 |---:|---|---|---|
 | 1 | Đối soát tiền cổng thanh toán | Đây là task tốn nhiều thời gian và mang tính lặp lại nhất của Mai | Cổng thanh toán hoặc OMS có sẵn tính năng đối soát chưa? Nếu có mà chưa dùng, vấn đề là quy trình, không phải công cụ. |
-| 2 | Xử lý tiền chuyển khoản treo | Pain lan sang người khác: CSKH chờ xác nhận, khách chờ đơn, sales bị hỏi. Lợi ích vì thế không chỉ là giờ làm của Mai. | Mỗi ngày thật sự có bao nhiêu khoản treo, mỗi khoản treo bao lâu: chưa có log, mới là ước lượnge |
+| 2 | Xử lý tiền chuyển khoản treo | Pain lan sang người khác: CSKH chờ xác nhận, khách chờ đơn, sales bị hỏi. Lợi ích vì thế không chỉ là giờ làm của Mai. | Mỗi ngày thật sự có bao nhiêu khoản treo, mỗi khoản treo bao lâu: chưa có log, mới là ước lượng |
 | 3 | Trả lời sếp về tình hình tiền | Mỗi lần trả lời chậm hoặc phải đính chính có thể làm chậm quyết định chi của sếp | Sếp hỏi thật sự bao nhiêu lần/tuần và bao nhiêu lần phải đính chính: task bất chợt nên chưa có baseline |
 
 ### Problem Card #1 - Đối soát tiền từ cổng thanh toán
@@ -97,7 +97,7 @@ HIỆN TẠI — 80 phút/ngày
 | Quy trình hiện tại (3–7 bước) | 1. Tải sao kê, lọc khoản chưa có mã đơn hợp lệ · 2. Đọc nội dung chuyển khoản, tra hệ thống bán hàng theo số tiền/tên/SĐT · 3. Đoán khoản thuộc đơn nào, nhắn sales/CSKH xác nhận · 4. Gạch công nợ, xác nhận đơn · 5. Ghi khoản còn treo vào file theo dõi |
 | Bottleneck (bước nào, mất bao nhiêu phút) | Bước 3, đoán và hỏi: khoảng 30 phút/ngày. Kết quả phụ thuộc trí nhớ của Mai và việc người khác có trả lời kịp không |
 | Impact (nếu không giải thì sao) | Khoảng 60 phút/ngày (~20 giờ/tháng). Đơn chậm xác nhận, CSKH chờ 30–120 phút  |
-| Success metric (baseline → target) | Dưới 25 phút/kỳ; số tiền chưa phân loại dưới 2% tổng phí |
+| Success metric (baseline → target) | 60 → dưới 20 phút/ngày; số ngày trung bình một khoản bị treo: đo 2 tuần đầu → dưới 1 ngày |
 | Phương án không dùng AI | QR chuyển khoản có sẵn mã đơn trong nội dung; rule khớp theo số tiền + khung giờ cho phần còn lại |
 | Giả thuyết về AI (nếu có) | AI đọc nội dung chuyển khoản viết tự do, đề xuất tối đa 3 đơn có thể khớp kèm lý do; Mai xác nhận hoặc sửa |
 | Cảm nhận nhanh | Rule (QR có mã đơn) trước, AI chỉ xử lý phần nội dung lộn xộn còn lại |
@@ -158,7 +158,7 @@ HIỆN TẠI — 30 phút/lần
 | Phản biện bài của bạn khác | Câu hỏi tôi đã đặt: Sản phẩm của H là gì - khách hàng là ai, có bao nhiêu unique expected tickets cho 1 ticket, AI hỗ trợ phân loại tới đâu | Giúp H xác định scope |
 | Nhận phản biện | Câu hỏi tôi nhận được: Quy trình đối soát ngày nay đã được tự động hóa tới mức độ nào? Các công cụ hõ trợ đối soát tiên phong đang làm ntn? | Tôi đã sửa gì: bổ sung metrics |
 | Gom cluster / cây OST | Không phụ trách | Không phụ trách |
-| Chọn candidate problem  Tham gia chấm điểm shortlist | Nhóm không chọn card của tôi. Tôi học được rằng problem đau thật vẫn có thể không cần AI |
+| Chọn candidate problem | Tham gia chấm điểm shortlist | Nhóm không chọn card của tôi. Tôi học được rằng problem đau thật vẫn có thể không cần AI |
 | Kiểm chứng / research | Hỗ trợ CP4 theo phân công ở TEAM.md  | Hoàn thành bài |
 | Quy trình nhóm | Không phụ trách | Hoàn thành bài |
 | Problem Statement | Không phụ trách | Hoàn thành bài |
