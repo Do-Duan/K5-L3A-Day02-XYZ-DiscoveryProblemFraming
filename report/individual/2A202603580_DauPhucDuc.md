@@ -8,7 +8,7 @@
 - MSSV: 2A202603580
 - Email trường (không bắt buộc, repo có thể để public): 
 - Tên nhóm: XYZ
-- Link repo nhóm: https://github.com/dpduc/K5-L3-Day02-DiscoveryProblemFraming
+- Link repo nhóm: https://github.com/Do-Duan/K5-L3A-Day02-XYZ-DiscoveryProblemFraming
 
 ---
 
@@ -46,7 +46,9 @@ Bối cảnh: Chị Mai làm kế toán, chị thường xuyên phải thực hi
 
 **Nếu có dùng AI để gợi ý thêm:** ý nào AI gợi ý mà bạn giữ lại, ý nào bỏ và vì sao.
 
--
+- Giữ lại (AI gợi ý, tôi viết lại theo trải nghiệm): 4.2
+- Bỏ: 2.2 vì là solution trá hình / không có trong công việc thật của Mai
+
 
 ---
 
@@ -57,8 +59,8 @@ Bối cảnh: Chị Mai làm kế toán, chị thường xuyên phải thực hi
 | Rank | Problem | Vì sao chọn | Điều còn chưa chắc |
 |---:|---|---|---|
 | 1 | Đối soát tiền cổng thanh toán | Đây là task tốn nhiều thời gian và mang tính lặp lại nhất của Mai | Cổng thanh toán hoặc OMS có sẵn tính năng đối soát chưa? Nếu có mà chưa dùng, vấn đề là quy trình, không phải công cụ. |
-| 2 | Xử lý tiền chuyển khoản treo | Pain lan sang người khác: CSKH chờ xác nhận, khách chờ đơn, sales bị hỏi. Lợi ích vì thế không chỉ là giờ làm của M. | Success metric và baseline |
-| 3 | Trả lời sếp về tình hình tiền | Mỗi lần trả lời chậm hoặc phải đính chính có thể làm chậm quyết định chi của sếp | Budget AI API |
+| 2 | Xử lý tiền chuyển khoản treo | Pain lan sang người khác: CSKH chờ xác nhận, khách chờ đơn, sales bị hỏi. Lợi ích vì thế không chỉ là giờ làm của Mai. | Mỗi ngày thật sự có bao nhiêu khoản treo, mỗi khoản treo bao lâu: chưa có log, mới là ước lượnge |
+| 3 | Trả lời sếp về tình hình tiền | Mỗi lần trả lời chậm hoặc phải đính chính có thể làm chậm quyết định chi của sếp | Sếp hỏi thật sự bao nhiêu lần/tuần và bao nhiêu lần phải đính chính: task bất chợt nên chưa có baseline |
 
 ### Problem Card #1 - Đối soát tiền từ cổng thanh toán
 
@@ -72,7 +74,7 @@ Bối cảnh: Chị Mai làm kế toán, chị thường xuyên phải thực hi
 | Impact (nếu không giải thì sao) | Khoảng 80 phút/ngày, tức 6,5 giờ/tuần. Khoản lệch chưa xử lý dồn đến cuối tháng làm chậm khóa sổ |
 | Success metric (baseline → target) |Tổng thời gian dưới 25 phút/ngày; 100% dòng lệch được phân loại nguyên nhân trong ngày; không còn khoản lệch tồn quá 3 ngày |
 | Phương án không dùng AI |Power Query chuẩn hóa và khớp tự động, kèm bảng mã nguyên nhân thường gặp. Bước 3–4 gần như hết; bước 5 giảm được phần lệch có quy luật |
-| Giả thuyết về AI (nếu có) |AI đề xuất nguyên nhân cho dòng lệch dựa trên các ca đã xử lý trước đó; M xác nhận hoặc sửa |
+| Giả thuyết về AI (nếu có) |AI đề xuất nguyên nhân cho dòng lệch dựa trên các ca đã xử lý trước đó; Mai xác nhận hoặc sửa |
 | Cảm nhận nhanh | Automation trước, AI sau. Phần lớn là rule-based |
 
 Quy trình nháp hiện tại:
@@ -91,23 +93,22 @@ HIỆN TẠI — 80 phút/ngày
 |---|---|
 | Job Story |Khi sao kê có khoản tiền vào với nội dung chuyển khoản không chuẩn, tôi muốn xác định khoản đó thuộc đơn hoặc khách nào, để gạch công nợ và xác nhận đơn đúng |
 | Actor | Mai -> CSKH, sales |
-| Thời điểm / bối cảnh | Theo kỳ thanh toán của từng sàn (hằng tuần), dồn nhiều vào cuối tháng |
-| Quy trình hiện tại (3–7 bước) | 1. Tải báo cáo từ từng sàn · 2. Mở file, mỗi sàn một cấu trúc cột khác nhau · 3. Map tên phí của sàn sang tài khoản kế toán · 4. Cộng theo loại phí, kiểm tổng có khớp tiền về không · 5. Lập bút toán · 6. Lưu file đối chiếu |
-| Bottleneck (bước nào, mất bao nhiêu phút) | Bước 3, map tên phí: khoảng 25 phút. Sàn đổi tên phí hoặc thêm phí mới theo chính sách, không có quy tắc sẵn |
-| Impact (nếu không giải thì sao) | Khoảng 75 phút/kỳ. Phí không rõ bị dồn vào “chi phí khác”, nên biên lợi nhuận theo kênh bị sai |
+| Thời điểm / bối cảnh | Hằng ngày sau khi có sao kê, hoặc khi CSKH báo khách đã chuyển khoản mà đơn chưa được xác nhận |
+| Quy trình hiện tại (3–7 bước) | 1. Tải sao kê, lọc khoản chưa có mã đơn hợp lệ · 2. Đọc nội dung chuyển khoản, tra hệ thống bán hàng theo số tiền/tên/SĐT · 3. Đoán khoản thuộc đơn nào, nhắn sales/CSKH xác nhận · 4. Gạch công nợ, xác nhận đơn · 5. Ghi khoản còn treo vào file theo dõi |
+| Bottleneck (bước nào, mất bao nhiêu phút) | Bước 3, đoán và hỏi: khoảng 30 phút/ngày. Kết quả phụ thuộc trí nhớ của Mai và việc người khác có trả lời kịp không |
+| Impact (nếu không giải thì sao) | Khoảng 60 phút/ngày (~20 giờ/tháng). Đơn chậm xác nhận, CSKH chờ 30–120 phút  |
 | Success metric (baseline → target) | Dưới 25 phút/kỳ; số tiền chưa phân loại dưới 2% tổng phí |
-| Phương án không dùng AI | Bảng mapping tên phí sang tài khoản cho từng sàn, cập nhật khi có phí mới, kết hợp Power Query cho từng sàn |
-| Giả thuyết về AI (nếu có) | AI chỉ xử lý ngoại lệ: đề xuất tài khoản cho dòng phí mới chưa có trong bảng mapping, kèm lý do; kế toán duyệt rồi bổ sung vào bảng |
-| Cảm nhận nhanh | Workflow, AI xử lý ngoại lệ |
+| Phương án không dùng AI | QR chuyển khoản có sẵn mã đơn trong nội dung; rule khớp theo số tiền + khung giờ cho phần còn lại |
+| Giả thuyết về AI (nếu có) | AI đọc nội dung chuyển khoản viết tự do, đề xuất tối đa 3 đơn có thể khớp kèm lý do; Mai xác nhận hoặc sửa |
+| Cảm nhận nhanh | Rule (QR có mã đơn) trước, AI chỉ xử lý phần nội dung lộn xộn còn lại |
 
 Quy trình nháp hiện tại:
 
 ```text
-HIỆN TẠI — 75 phút/kỳ
+HIỆN TẠI — 60 phút/ngày
+[1 Lọc sao kê: 5'] → [2 Tra hệ thống bán hàng: 15'] → [3 Đoán + hỏi sales/CSKH: 30'] ← BOTTLENECK
+→ [4 Gạch công nợ: 5'] → [5 Ghi khoản treo: 5']
 
-[1 Tải báo cáo sàn: 10'] → [2 Đọc cấu trúc file: 5']
-→ [3 Map phí → tài khoản: 25'] ← BOTTLENECK
-→ [4 Cộng + kiểm tổng: 15'] → [5 Lập bút toán: 15'] → [6 Lưu file: 5']
 ```
 
 ### Problem Card #3 - Trả lời sếp về tình hình tiền
@@ -130,9 +131,8 @@ Quy trình nháp hiện tại:
 ```text
 HIỆN TẠI — 30 phút/lần
 
-[1 Xác định khoảng thời gian đối soát và pull dữ liệu: 10'] → [2 Xác định trường tính toán và phép tính: 10']
- ← BOTTLENECK
-→ [3. Soạn báo cáo: 5-10']
+[1 Xác định khoảng thời gian đối soát và pull dữ liệu: 10'] → [2 Xác định trường tính toán và phép tính: 10'] ← BOTTLENECK
+→ [3 Soạn báo cáo: 5-10']
 ```
 
 ### Card muốn pitch nhất
@@ -157,13 +157,13 @@ HIỆN TẠI — 30 phút/lần
 | Pitch Problem Card | Pitch và phản biện các câu hỏi đưa ra cả 3 Problem Card | Nhận được góp ý cải thiện metrics đánh giá |
 | Phản biện bài của bạn khác | Câu hỏi tôi đã đặt: Sản phẩm của H là gì - khách hàng là ai, có bao nhiêu unique expected tickets cho 1 ticket, AI hỗ trợ phân loại tới đâu | Giúp H xác định scope |
 | Nhận phản biện | Câu hỏi tôi nhận được: Quy trình đối soát ngày nay đã được tự động hóa tới mức độ nào? Các công cụ hõ trợ đối soát tiên phong đang làm ntn? | Tôi đã sửa gì: bổ sung metrics |
-| Gom cluster / cây OST | | |
-| Chọn candidate problem | | |
-| Kiểm chứng / research | | |
-| Quy trình nhóm | | |
-| Problem Statement | | |
-| Mức can thiệp AI | | |
-| Quyết định | | |
+| Gom cluster / cây OST | Không phụ trách | Không phụ trách |
+| Chọn candidate problem  Tham gia chấm điểm shortlist | Nhóm không chọn card của tôi. Tôi học được rằng problem đau thật vẫn có thể không cần AI |
+| Kiểm chứng / research | Hỗ trợ CP4 theo phân công ở TEAM.md  | Hoàn thành bài |
+| Quy trình nhóm | Không phụ trách | Hoàn thành bài |
+| Problem Statement | Không phụ trách | Hoàn thành bài |
+| Mức can thiệp AI | Hỗ trợ CP6 theo phân công | Hoàn thành bài |
+| Quyết định | Góp ý về rủi ro | Nhóm chốt Go, pilot 4 tuần |
 
 ---
 
@@ -173,10 +173,10 @@ HIỆN TẠI — 30 phút/lần
 |---|---|---|---|---|
 | CP1 Scan | Viết lại vấn đề, đề xuất các vấn đề tương tự, tranh biện | Khả năng đề xuất vấn đề tương tự, tranh biện phản biện trên chính quan điểm trước đó của nó | đánh giá quá thấp khả năng làm việc thủ công của con người | tiềm năng tự động hóa và goal của bài toán |
 | CP2 Problem Card | Viết problem card, phản biện | hữu ích - task và scope đã rõ | hữu ích | không sửa |
-| CP4 Research | | | | |
-| CP5 Quy trình | | | | |
-| CP5–6 Problem Statement | | | | |
-| CP6 Mức can thiệp / quyết định | | | | |
+| CP4 Research | Dùng AI để: tìm công cụ ghi biên bản họp có sẵn. | tìm nhanh nguồn chính thức. | Chưa thấy | Không |
+| CP5 Quy trình | Không dùng AI | Không | Không | Không |
+| CP5–6 Problem Statement | Không phụ trách | Không | Không | Không |
+| CP6 Mức can thiệp / quyết định | Hỗ trợ soạn thảo, format report | Làm tốt | Lạm dụng formating | Sửa formating lại |
 
 ---
 
@@ -210,4 +210,4 @@ Trả lời bằng trải nghiệm thật của bạn, tối thiểu 200 từ ch
 
 ## 7. Tài liệu tham khảo
 
--
+
