@@ -60,11 +60,15 @@ Lăng kính: **Lặp lại** · **Tốn thời gian** · **Cần đọc, tổng 
 
 Quy trình nháp hiện tại:
 
-```text
-HIỆN TẠI — 60 phút
-
-[1 Lấy dữ liệu: 5'] → [2 Đọc từng phản hồi: 25'] ← BOTTLENECK
-→ [3 Gắn tag thủ công: 15'] ← BOTTLENECK → [4 Tổng hợp: 10'] → [5 Tạo ticket Jira: 5']
+```mermaid
+flowchart LR
+    A["1. Lấy dữ liệu: 5 phút"] --> B["2. Đọc từng phản hồi: 25 phút"]
+    B --> C["3. Gắn tag thủ công: 15 phút"]
+    C --> D["4. Tổng hợp: 10 phút"]
+    D --> E["5. Tạo ticket Jira: 5 phút"]
+    B:::bottleneck
+    C:::bottleneck
+    classDef bottleneck fill:#fff3cd,stroke:#d39e00,stroke-width:2px
 ```
 
 ### Problem Card #2
@@ -84,12 +88,15 @@ HIỆN TẠI — 60 phút
 
 Quy trình nháp hiện tại:
 
-```text
-HIỆN TẠI — 45 phút (sau họp)
-
-[1 Vừa họp vừa ghi chú nháp: (trong họp)] → [2 Đọc lại nháp: 5'] 
-→ [3 Sắp xếp ý & chốt việc: 15'] ← BOTTLENECK 
-→ [4 Gõ biên bản chuẩn: 20'] ← BOTTLENECK → [5 Gửi team: 5']
+```mermaid
+flowchart LR
+    A["1. Vừa họp vừa ghi chú nháp<br/>(trong họp)"] --> B["2. Đọc lại nháp: 5 phút"]
+    B --> C["3. Sắp xếp ý & chốt việc: 15 phút"]
+    C --> D["4. Gõ biên bản chuẩn: 20 phút"]
+    D --> E["5. Gửi team: 5 phút"]
+    C:::bottleneck
+    D:::bottleneck
+    classDef bottleneck fill:#fff3cd,stroke:#d39e00,stroke-width:2px
 ```
 
 ### Problem Card #3
@@ -109,11 +116,14 @@ HIỆN TẠI — 45 phút (sau họp)
 
 Quy trình nháp hiện tại:
 
-```text
-HIỆN TẠI — 20 phút
-
-[1 Mở app & cuộn lên đầu: 2'] → [2 Đọc lướt hàng trăm tin: 10'] ← BOTTLENECK 
-→ [3 Lọc thông báo/file quan trọng: 5'] ← BOTTLENECK → [4 Hỏi lại đồng nghiệp: 3']
+```mermaid
+flowchart LR
+    A["1. Mở app & cuộn lên đầu: 2 phút"] --> B["2. Đọc lướt hàng trăm tin: 10 phút"]
+    B --> C["3. Lọc thông báo/file quan trọng: 5 phút"]
+    C --> D["4. Hỏi lại đồng nghiệp: 3 phút"]
+    B:::bottleneck
+    C:::bottleneck
+    classDef bottleneck fill:#fff3cd,stroke:#d39e00,stroke-width:2px
 ```
 
 ### Card muốn pitch nhất
